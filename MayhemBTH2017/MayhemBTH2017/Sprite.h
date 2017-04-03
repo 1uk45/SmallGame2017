@@ -17,13 +17,8 @@ public:
 private:
 	GLuint m_vboID;
 	GUIQuad m_quad;
-
-
+	
 };
-
-
-
-
 
 #endif // !__SPRITE_H__
 

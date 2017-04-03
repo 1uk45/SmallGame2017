@@ -10,6 +10,7 @@ Sprite::Sprite()
 
 Sprite::~Sprite()
 {
+
 }
 
 void Sprite::init(float x, float y, float width, float height)
@@ -17,18 +18,16 @@ void Sprite::init(float x, float y, float width, float height)
 
 	m_quad.m_arr[0].m_position = glm::vec2(x, y);
 
-	m_quad.m_arr[0].m_position = glm::vec2(x + width, y);
+	m_quad.m_arr[1].m_position = glm::vec2(x + width, y);
 
-	m_quad.m_arr[0].m_position = glm::vec2(x, y + height);
+	m_quad.m_arr[2].m_position = glm::vec2(x, y + height);
 
-	m_quad.m_arr[0].m_position = glm::vec2(x + width, y + height);
-
+	m_quad.m_arr[3].m_position = glm::vec2(x + width, y + height);
 
 	if (m_vboID == 0)
 	{
 		glGenBuffers(1, &m_vboID);
 	}
-	//sdf
 
 	glBindBuffer(GL_ARRAY_BUFFER, m_vboID);
 	glBufferData(GL_ARRAY_BUFFER, 4 * sizeof(m_quad.m_arr[0]), &m_quad.m_arr[0], GL_STATIC_DRAW);
