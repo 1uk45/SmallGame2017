@@ -44,9 +44,9 @@ void ParticleSystem::Render() {
 	//Draw the particles which have now been swapped and transformed
 	glBindBuffer(GL_ARRAY_BUFFER, m_particleBufferA);
 
-	glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, sizeof(Particle), 0); //3 float vector													 
-	glVertexAttribPointer(4, 3, GL_FLOAT, GL_FALSE, sizeof(Particle), BUFFER_OFFSET(sizeof(Vector<GLfloat>) * 2)); //3 float vector
-	glVertexAttribPointer(5, 1, GL_FLOAT, GL_FALSE, sizeof(Particle), BUFFER_OFFSET(sizeof(Vector<GLfloat>) * 3)); //float
+	glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, sizeof(Particle), BUFFER_OFFSET(sizeof(GLfloat) * 8)); //3 float vector													 
+	glVertexAttribPointer(4, 1, GL_FLOAT, GL_FALSE, sizeof(Particle), BUFFER_OFFSET(sizeof(GLfloat) *11)); //3 float vector
+	glVertexAttribPointer(5, 1, GL_FLOAT, GL_FALSE, sizeof(Particle), BUFFER_OFFSET(sizeof(GLfloat) * 12)); //float
 	
 	glDrawArrays(GL_POINTS, 0, m_particleCount);
 }
@@ -57,9 +57,9 @@ void ParticleSystem::AddAttributeLocation() {
 	glBindAttribLocation(this->GetProgramID(), 4, "particle_Velocity_vert");
 	glBindAttribLocation(this->GetProgramID(), 5, "particle_TimeAlive_vert");
 
-	glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, sizeof(Particle), 0); //3 float vector													 
-	glVertexAttribPointer(4, 3, GL_FLOAT, GL_FALSE, sizeof(Particle), BUFFER_OFFSET(sizeof(Vector<GLfloat>)*2)); //3 float vector
-	glVertexAttribPointer(5, 1, GL_FLOAT, GL_FALSE, sizeof(Particle), BUFFER_OFFSET(sizeof(Vector<GLfloat>) * 3)); //float
+	glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, sizeof(Particle), BUFFER_OFFSET(sizeof(GLfloat) * 8)); //3 float vector													 
+	glVertexAttribPointer(4, 1, GL_FLOAT, GL_FALSE, sizeof(Particle), BUFFER_OFFSET(sizeof(GLfloat) * 11)); //3 float vector
+	glVertexAttribPointer(5, 1, GL_FLOAT, GL_FALSE, sizeof(Particle), BUFFER_OFFSET(sizeof(GLfloat) * 12)); //float
 
 	//Particle Timer
 	m_timerID = glGetUniformLocation(this->GetProgramID(), "particle_Timer");
