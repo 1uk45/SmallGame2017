@@ -13,6 +13,9 @@ public:
 	//::.. CONSTRUCTORS ..:://
 	Vector();
 	virtual ~Vector();
+	Vector(const T value[]);
+
+	//::.. OPERATOR ..:://
 	T& operator[] (size_t n);
 	T& operator= (const T &value);
 
@@ -36,6 +39,9 @@ public:
 	// Basicly a get function for m_isEmpty
 	bool Empty();
 
+	// Resizes the container to contain n elements
+	void Resize(size_t n);
+
 	//::.. ACCESS FUNCTIONS ..:://
 	// Access value at element
 	T At(size_t n);
@@ -45,7 +51,6 @@ public:
 
 	// Access last element
 	T Last();
-
 
 private:
 	MemoryManager m_memory;

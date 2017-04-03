@@ -17,6 +17,15 @@ Vector<T>::~Vector()
 }
 
 template<class T>
+Vector<T>::Vector(const T value[])
+{
+	for (int i = 0; i < sizeof(value) / sizeof(*value); i++)
+	{
+		m_vector.push_back(value[i]);
+	}
+}
+
+template<class T>
 T & Vector<T>::operator[](size_t n)
 {
 	return m_vector[n];
@@ -68,6 +77,12 @@ template<class T>
 bool Vector<T>::Empty()
 {
 	return m_vector.empty();
+}
+
+template<class T>
+void Vector<T>::Resize(size_t n)
+{
+	m_vector.resize(n);
 }
 
 // Access value at element
