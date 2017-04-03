@@ -2,7 +2,7 @@
 #ifndef __SHADER_H__
 #define __SHADER_H__
 
-//#include "MemoryManager.h"
+#include "MemoryManager.h"
 //#include "StackAllocator.h"
 
 #include <glew.h>
@@ -15,6 +15,7 @@
 class AShader {
 public:
 	//::..CONSTRUCTORS..:://
+	AShader();
 	AShader(const std::string& filename);
 
 	//Destructor

@@ -10,7 +10,13 @@
 
 #include "Vector.h"
 #include "MasterShader.h"
+struct Particle{
+	Vector<GLfloat> position;
+	Vector<GLfloat> velocity;
+	GLfloat birthTime;
+	
 
+};
 class ParticleSystem: public AShader
 {
 public:
@@ -23,13 +29,17 @@ public:
 	//::..HELPER FUNCTIONS..:://
 
 	void Update();
-	void Render(GLuint dt, const glm::mat4());
+	void Render();
 	
 private:
 	//::..HELPER FUNCTIONS..:://
 	void AddAttributeLocation();
+	void InitVBO();
 private:
-	bool m_
+	GLuint m_particleBufferA, m_particleBufferB;
+	GLfloat m_timer=0;
+	GLuint m_timerID;
+	GLuint m_particleCount;
 
 };
 

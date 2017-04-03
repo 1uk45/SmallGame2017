@@ -72,6 +72,9 @@
     <ClCompile Include="TextureCache.cpp">
       <Filter>Engine\Misc</Filter>
     </ClCompile>
+    <ClCompile Include="ParticleSystem.cpp">
+      <Filter>Engine\Rendering</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StackPool.h">
@@ -115,6 +118,9 @@
     </ClInclude>
     <ClInclude Include="TextureCache.h">
       <Filter>Engine\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleSystem.h">
+      <Filter>Engine\Rendering</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

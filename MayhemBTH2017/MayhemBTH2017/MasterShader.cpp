@@ -1,8 +1,7 @@
 #include "MasterShader.h"
 
-
-
 //::..CONSTRUCTORS..:://
+AShader::AShader(){}
 AShader::AShader(const std::string& filename)
 	: m_programID(glCreateProgram())
 {
