@@ -96,6 +96,12 @@
     <ClCompile Include="StateManager.cpp">
       <Filter>Engine\Managers</Filter>
     </ClCompile>
+    <ClCompile Include="LevelExporter.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelManager.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StackPool.h">
@@ -168,10 +174,25 @@
     <ClInclude Include="StateManager.h">
       <Filter>Engine\Managers</Filter>
     </ClInclude>
+    <ClInclude Include="LevelExporter.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelManager.h">
+      <Filter>Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="leo.frag" />
     <None Include="leo.geom" />
     <None Include="leo.vert" />
+    <None Include="DebugShader.frag">
+      <Filter>Engine</Filter>
+    </None>
+    <None Include="DebugShader.geom">
+      <Filter>Engine</Filter>
+    </None>
+    <None Include="DebugShader.vert">
+      <Filter>Engine</Filter>
+    </None>
   </ItemGroup>
 </Project>
