@@ -2,13 +2,14 @@
 #include "GUI.h"
 
 
+
 int main(int argc, char *argv[])
 {
-
-
+	glewExperimental = GL_TRUE;
+	glewInit();
 	SDL_Window *window;                    // Declare a pointer
 
-	SDL_Init(SDL_INIT_VIDEO);              // Initialize SDL2
+	SDL_Init(SDL_INIT_EVERYTHING);              // Initialize SDL2
 
 										   // Create an application window with the following settings:
 	window = SDL_CreateWindow(
@@ -27,9 +28,9 @@ int main(int argc, char *argv[])
 		return 1;
 	}
 
-	glewInit();
 
-	GUI gui1("leo" , true);
+
+	GUI gui1("leo" , false);
 
 	Sprite s1;
 

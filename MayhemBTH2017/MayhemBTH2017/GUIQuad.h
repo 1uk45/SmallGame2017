@@ -23,6 +23,7 @@ struct GUIQuad
 	float depth;
 
 	GUIVertex m_arr[4];
+	glm::vec3 m_color;
 
 };
 

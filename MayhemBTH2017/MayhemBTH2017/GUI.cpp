@@ -1,4 +1,6 @@
 #include "GUI.h"
+#include "InputManager.h"
+#include "VideoManager.h"
 
 
 
@@ -21,24 +23,35 @@ void GUI::AddSprite(Sprite sprite)
 void GUI::Update()
 {
 
-	int mouse_x;
+
+
+	InputManager::Get()->Update();
+	InputManager::Get()->
+	/*int mouse_x;
 	int mouse_y;
 
 	SDL_GetMouseState(&mouse_x, &mouse_y);
 
-	float new_mouseX = 600 / (float)mouse_x;
-	float new_mouseY = 400 / (float)mouse_y;
+	float new_mouseX = VideoManager::Get()->GetScreenWidth() / (float)mouse_x;
+	float new_mouseY = VideoManager::Get()->GetScreenHeight() / (float)mouse_y;*/
 
 	for (int i = 0; i < m_spriteArr.GetSize(); i++)
 	{
-		m_spriteArr[i].Update(mouse_x, mouse_y);
+		m_spriteArr[i].ButtonUpdate(mouse_x, mouse_y);
 	}
+
+	GLint myLoc = glGetUniformLocation(GetProgramID(), "color");
+	glProgramUniform3f(GetProgramID(), myLoc, 1, 1, 1);
 }
 
 void GUI::Render()
 {
 	Bind();
-	m_spriteArr[0].Draw();
+	for (int i = 0; i < m_spriteArr.GetSize(); i++)
+	{
+		m_spriteArr[i].Draw();
+	}
+
 	Release();
 }
 

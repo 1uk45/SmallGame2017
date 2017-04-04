@@ -12,7 +12,7 @@ public:
 
 	void Init(float x, float y, float width, float height);
 
-	void Update(int mouse_x, int mouse_y);
+	glm::vec3 ButtonUpdate(int mouse_x, int mouse_y);
 
 	void Draw();
 

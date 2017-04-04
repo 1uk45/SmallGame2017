@@ -28,6 +28,8 @@ void Sprite::Init(float x, float y, float width, float height)
 
 	m_quad.m_arr[3].m_position = glm::vec2(x + width, y + height);
 
+	m_quad.m_color = glm::vec3(0, 0, 1);
+
 
 	if (m_vboID == 0)
 	{
@@ -41,7 +43,7 @@ void Sprite::Init(float x, float y, float width, float height)
 
 }
 
-void Sprite::Update(int mouse_x, int mouse_y)
+glm::vec3 Sprite::ButtonUpdate(int mouse_x, int mouse_y)
 {
 
 	if (mouse_x > m_BB.x && mouse_y > m_BB.y
@@ -49,7 +51,16 @@ void Sprite::Update(int mouse_x, int mouse_y)
 		&& mouse_y < m_BB.y + m_BB.w)
 	{
 		//change color
+		m_quad.m_color = glm::vec3(1,1,1);
+
 	}
+	else
+	{
+		m_quad.m_color = glm::vec3(0, 0, 1);
+	}
+
+	return m_quad.m_color;
+
 }
 
 void Sprite::Draw()
@@ -58,9 +69,9 @@ void Sprite::Draw()
 
 	glEnableVertexAttribArray(0);
 
-	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, 0);
+	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(GUIVertex), 0);
 
-	glDrawArrays(GL_TRIANGLES, 0, 6);
+	glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
