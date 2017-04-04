@@ -5,7 +5,7 @@
 LevelEditor::LevelEditor()
 	: m_posX(0), m_posY(0)
 {
-	Init();
+	m_input = InputManager::Get();
 }
 
 LevelEditor::~LevelEditor()
@@ -13,102 +13,75 @@ LevelEditor::~LevelEditor()
 
 }
 
+
+//::.. UPDATE FUNCTIONS ..:://
 void LevelEditor::Update()
-{
-	// SELECT THE SHADER
-	// UPDATE THE SHADER
-	m_debugShader.Bind();
-	for (uint32_t x = 0; x < SIZE_X; x++)
+{	
+	
+	Move();
+	ClampPos();
+
+	if (m_input->GetButtonDown(CONTROLLER_BUTTON_A))
 	{
-		for (uint32_t y = 0; y < SIZE_Y; y++)
-		{
-			m_debugShader.Update(m_meshObjects[x][y].transform, m_camera);
-			if (m_grid[x][y].isOccupied)
-			{
-				m_meshObjects[x][y].mesh.Render();
-			}
-		}
+		m_level.AddBlock(m_posX, m_posY);
 	}
-}
 
-void LevelEditor::SetTexture(uint32_t textureID)
-{
-	m_grid[m_posX][m_posY].textureID = textureID;
-}
-
-void LevelEditor::SetOccupied(bool isOccupied)
-{
-	m_grid[m_posX][m_posY].textureID = isOccupied;
-}
-
-void LevelEditor::SetSpawnPoint(bool isSpawnPoint)
-{
-	m_grid[m_posX][m_posY].textureID = isSpawnPoint;
-}
-
-void LevelEditor::SaveLevel()
-{
-	// TODO: CALL THE LEVEL EXPORTER
+	m_level.Render();
 }
 
 
 //::.. HELP FUNCTIONS ..:://
-void LevelEditor::Init()
+void LevelEditor::Move()
 {
-	m_debugShader.Init("DebugShader", false);
-	InitGrid();
-	InitMeshes();
+	// MOVE THE POS;
+	
+
+
+	if (m_input->GetButtonDown(CONTROLLER_BUTTON_DPAD_UP))
+	{
+		++m_posY;
+	}
+
+	if (m_input->GetButtonDown(CONTROLLER_BUTTON_DPAD_DOWN))
+	{
+		--m_posY;
+	}
+
+	if (m_input->GetButtonDown(CONTROLLER_BUTTON_DPAD_LEFT))
+	{
+		++m_posX;
+	}
+
+	if (m_input->GetButtonDown(CONTROLLER_BUTTON_DPAD_RIGHT))
+	{
+		--m_posX;
+	}
+	
+	// OSV
+	//	--m_posX;
+	//	++m_posY;
+	//	--m_posY;
+
 }
 
-void LevelEditor::InitGrid()
+void LevelEditor::ClampPos()
 {
-	for (size_t x = 0; x < SIZE_X; x++)
+	if (m_posX >= SIZE_X)
 	{
-		for (size_t y = 0; y < SIZE_Y; y++)
-		{
-			m_grid[x][y].textureID = 0;
-			m_grid[x][y].isOccupied = true;
-			m_grid[x][y].isSpawnPoint = false;
-		}
+		m_posX = SIZE_X - 1;
+	}
+	else if (m_posX < 0)
+	{
+		m_posX = 0;
+	}
+
+	if (m_posY >= SIZE_Y)
+	{
+		m_posY = SIZE_Y - 1;
+	}
+	else if (m_posY < 0)
+	{
+		m_posY = 0;
 	}
 }
 
-void LevelEditor::InitMeshes()
-{
-	for (size_t x = 0; x < SIZE_X; x++)
-	{
-		for (size_t y = 0; y < SIZE_Y; y++)
-		{
-			Vertex verts[6];
-
-			verts[0].position = glm::vec3(0.5f, 0.5f, 0.0f);
-			verts[0].normal = glm::vec3(0.5f, 0.5f, 0.0f);
-			verts[0].texCoords = glm::vec2(0.0f, 1.0f);
-
-			verts[1].position = glm::vec3(0.5f, -0.5f, 0.0f);
-			verts[1].normal = glm::vec3(1.0f, 1.0f, 0.0f);
-			verts[1].texCoords = glm::vec2(0.0f, 1.0f);
-
-			verts[2].position = glm::vec3(-0.5f, 0.5f, 0.0f);
-			verts[2].normal = glm::vec3(1.0f, 1.0f, 0.0f);
-			verts[2].texCoords = glm::vec2(0.0f, 1.0f);
-
-			verts[3].position = glm::vec3(0.5f, -0.5f, 0.0f);
-			verts[3].normal = glm::vec3(1.0f, 1.0f, 0.0f);
-			verts[3].texCoords = glm::vec2(0.0f, 1.0f);
-
-			verts[4].position = glm::vec3(-0.5f, 0.5f, 0.0f);
-			verts[4].normal = glm::vec3(1.0f, 1.0f, 0.0f);
-			verts[4].texCoords = glm::vec2(0.0f, 1.0f);
-
-			verts[5].position = glm::vec3(-0.5f, -0.5f, 0.0f);
-			verts[5].normal = glm::vec3(1.0f, 1.0f, 0.0f);
-			verts[5].texCoords = glm::vec2(0.0f, 1.0f);
-
-			Transform tmpTransform;
-			tmpTransform.SetPosition(x * 2, y * 2, 100);
-			m_meshObjects[x][y].transform = tmpTransform;
-			m_meshObjects[x][y].mesh.LoadMesh(verts, 6, 3);
-		}
-	}
-}

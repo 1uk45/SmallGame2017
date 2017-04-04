@@ -1,7 +1,9 @@
 #include "InputManager.h"
 
 
+
 InputManager * InputManager::m_instance = nullptr;
+
 
 InputManager::InputManager()
 {
@@ -42,6 +44,21 @@ uint32_t InputManager::GetNrOfPlayers()
 	return m_nrOfPlayers;
 }
 
+bool InputManager::GetButtonDown(size_t button, size_t controller)
+{
+	return m_playerController[controller].GetButtonDown(button);
+}
+
+bool InputManager::GetButtonHeld(size_t button, size_t controller)
+{
+	return m_playerController[controller].GetButtonHeld(button);
+}
+
+bool InputManager::GetButtonUp(size_t button, size_t controller)
+{
+	return m_playerController[controller].GetButtonUp(button);
+}
+
 void InputManager::SetNrOfPlayers(uint32_t value)
 {
 	m_nrOfPlayers = value;
@@ -52,8 +69,6 @@ void InputManager::AddPlayer()
 	if (m_nrOfPlayers < m_maxNrOfPlayers)
 	{
 		m_nrOfPlayers++;
-		m_playerController[m_nrOfPlayers].StartUp();
-		std::cout << "Player Added!: " << m_nrOfPlayers << std::endl;
 	}
 }
 
@@ -61,7 +76,6 @@ void InputManager::RemovePlayer(uint32_t value)
 {
 
 	m_playerController[value].RemovePlayerController();
-	std::cout << "Player Removed!: " << m_nrOfPlayers << std::endl;
 	m_nrOfPlayers--;
 
 }
@@ -69,15 +83,24 @@ void InputManager::RemovePlayer(uint32_t value)
 void InputManager::Update()
 {
 	for (int i = 0; i < m_nrOfPlayers; i++)
+	{
 		m_playerController[i].Update();
+	}
+}
+
+void InputManager::Reset()
+{
+	for (int i = 0; i < m_nrOfPlayers; i++)
+	{
+		m_playerController[i].Reset();
+	}
 }
 
 void InputManager::Init()
 {
+	SDL_Init(SDL_INIT_GAMECONTROLLER);
 	m_nrOfPlayers = 1;
 	m_maxNrOfPlayers = 4;
-	m_playerController[m_nrOfPlayers].StartUp();
-	std::cout << "Input manager initiated!" << std::endl;
 }
 
 
