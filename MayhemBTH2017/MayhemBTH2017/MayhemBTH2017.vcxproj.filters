@@ -73,7 +73,6 @@
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="GUI.cpp" />
     <ClCompile Include="InputManager.cpp" />
-    <ClCompile Include="MasterShader.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="DebugShaderTech.cpp" />
     <ClCompile Include="Sprite.cpp" />
@@ -81,6 +80,21 @@
     <ClCompile Include="testMaincpp.cpp" />
     <ClCompile Include="ParticleSystem.cpp">
       <Filter>Engine\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Engine\Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerController.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelEditor.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="AShader.cpp">
+      <Filter>Engine\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="StateManager.cpp">
+      <Filter>Engine\Managers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -132,13 +146,27 @@
     <ClInclude Include="GUI.h" />
     <ClInclude Include="GUIQuad.h" />
     <ClInclude Include="InputManager.h" />
-    <ClInclude Include="MasterShader.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="DebugShaderTech.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="SpriteBatch.h" />
     <ClInclude Include="ParticleSystem.h">
       <Filter>Engine\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Engine\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerController.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelEditor.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="AShader.h">
+      <Filter>Engine\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="StateManager.h">
+      <Filter>Engine\Managers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
