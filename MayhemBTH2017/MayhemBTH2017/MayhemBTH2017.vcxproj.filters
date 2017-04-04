@@ -46,11 +46,11 @@
     <Filter Include="Engine\Core\Managers">
       <UniqueIdentifier>{9cb0e605-dc82-4c34-bae1-a4503b77de27}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GLSL">
-      <UniqueIdentifier>{47f1e50b-2c7a-4653-8b3e-19da930ebafb}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Engine\Resources\Exporters">
-      <UniqueIdentifier>{bb95d1ce-612f-4a0b-855d-d0b3b35d4ce6}</UniqueIdentifier>
+      <UniqueIdentifier>{6ed95845-988a-47b2-b4bf-39972ef85bf5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\LevelEditor">
+      <UniqueIdentifier>{9321c573-78f5-4120-87c9-4978bc7be59f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -59,6 +59,12 @@
     </ClCompile>
     <ClCompile Include="VideoManager.cpp">
       <Filter>Engine\Core\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="InputManager.cpp">
+      <Filter>Engine\Core\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="MasterShader.cpp">
+      <Filter>Engine\Rendering</Filter>
     </ClCompile>
     <ClCompile Include="ImageLoader.cpp">
       <Filter>Engine\Misc</Filter>
@@ -102,6 +108,7 @@
     <ClCompile Include="Scene.cpp">
       <Filter>Engine\Resources\ResourceTypes</Filter>
     </ClCompile>
+    <ClCompile Include="Transform.cpp" />
     <ClCompile Include="AGameObject.cpp">
       <Filter>Engine\GameObjects</Filter>
     </ClCompile>
@@ -114,40 +121,21 @@
     <ClCompile Include="ResourceManager.cpp">
       <Filter>Engine\Core\Managers</Filter>
     </ClCompile>
-    <ClCompile Include="Transform.cpp">
-      <Filter>Engine\Rendering</Filter>
-    </ClCompile>
-    <ClCompile Include="DebugShaderTech.cpp">
-      <Filter>Engine\Rendering</Filter>
-    </ClCompile>
-    <ClCompile Include="GUI.cpp" />
-    <ClCompile Include="InputManager.cpp" />
-    <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Sprite.cpp" />
-    <ClCompile Include="SpriteBatch.cpp" />
-    <ClCompile Include="testMaincpp.cpp" />
-    <ClCompile Include="AShader.cpp">
-      <Filter>Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="Camera.cpp">
-      <Filter>Engine\Rendering</Filter>
-    </ClCompile>
-    <ClCompile Include="LevelEditor.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerController.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="StateManager.cpp">
-      <Filter>Engine\Core\Managers</Filter>
-    </ClCompile>
+    <ClCompile Include="SceneManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="VideoManager.h">
       <Filter>Engine\Core\Managers</Filter>
     </ClInclude>
+    <ClInclude Include="InputManager.h">
+      <Filter>Engine\Core\Managers</Filter>
+    </ClInclude>
     <ClInclude Include="Vector.h">
       <Filter>Engine\Memory\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="MasterShader.h">
+      <Filter>Engine\Rendering</Filter>
     </ClInclude>
     <ClInclude Include="GLTexture.h">
       <Filter>Engine\Misc</Filter>
@@ -194,6 +182,7 @@
     <ClInclude Include="Scene.h">
       <Filter>Engine\Resources\ResourceTypes</Filter>
     </ClInclude>
+    <ClInclude Include="Transform.h" />
     <ClInclude Include="AGameObject.h">
       <Filter>Engine\GameObjects</Filter>
     </ClInclude>
@@ -209,37 +198,8 @@
     <ClInclude Include="ResourceManager.h">
       <Filter>Engine\Core\Managers</Filter>
     </ClInclude>
-    <ClInclude Include="Transform.h">
-      <Filter>Engine\Rendering</Filter>
-    </ClInclude>
-    <ClInclude Include="DebugShaderTech.h">
-      <Filter>Engine\Rendering</Filter>
-    </ClInclude>
-    <ClInclude Include="GUI.h" />
-    <ClInclude Include="GUIQuad.h" />
-    <ClInclude Include="InputManager.h" />
-    <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Sprite.h" />
-    <ClInclude Include="SpriteBatch.h" />
-    <ClInclude Include="AShader.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Camera.h">
-      <Filter>Engine\Rendering</Filter>
-    </ClInclude>
-    <ClInclude Include="LevelEditor.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerController.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="StateManager.h">
-      <Filter>Engine\Core\Managers</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="leo.frag" />
-    <None Include="leo.geom" />
-    <None Include="leo.vert" />
+    <ClInclude Include="GUIQuad.h" />
+    <ClInclude Include="SceneManager.h" />
   </ItemGroup>
 </Project>
