@@ -26,7 +26,7 @@ void GUI::Update()
 
 
 	InputManager::Get()->Update();
-	InputManager::Get()->
+	InputManager::Get()->Update();
 	/*int mouse_x;
 	int mouse_y;
 
