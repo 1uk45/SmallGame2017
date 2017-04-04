@@ -4,6 +4,7 @@
 
 
 #include "Transform.h"
+#include "Camera.h"
 
 
 #include <glew.h>
@@ -14,7 +15,8 @@
 #include <string>
 
 
-class AShader {
+class AShader 
+{
 public:
 	//::.. CONSTRUCTORS ..:://
 	AShader();
@@ -28,10 +30,12 @@ public:
 	void Init(const std::string& filename, bool hasGeomShader);
 	void Release();
 	void Bind();
-	void virtual Update(Transform transform) = 0;
+	virtual void Update(Transform& transform, Camera& camera);
 
-protected:
-	void virtual AddAttributeLocation();
+
+	//::.. PROTECTED FUNCTIONS ..:://
+	virtual void AddAttributeLocation();
+	virtual void AddUniforms();
 
 private:
 	//::.. HELP FUNCTIONS ..:://
@@ -44,15 +48,22 @@ private:
 	{
 		VERTEX_SHADER = 0,
 		FRAGMENT_SHADER,
-		GEOMETRY_SHADER,
 		NR_SHADERS
+	};
+
+	enum Uniforms
+	{
+		M,
+		V,
+		P,
+		NR_UNIFORMS
 	};
 
 	bool m_hasGeomShader;
 
 	GLuint m_programID;
 	GLuint m_shader[NR_SHADERS];
-
+	GLuint m_uniforms[NR_UNIFORMS];
 };
 
 #endif
