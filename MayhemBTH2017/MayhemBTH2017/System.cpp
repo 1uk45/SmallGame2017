@@ -18,6 +18,7 @@ void System::Run()
 {
 	while (true)
 	{
+		
 		// Switch between back and front buffer.
 		m_videoManager->DisplayUpdate();
 	}

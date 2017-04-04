@@ -28,6 +28,7 @@ int main(int argc, char *argv[])
 	// Start the main loop.
 	system.Run();
 
+
 	// Terminate all singleton managers in
 	// reverse order from creation.
 	Terminate();

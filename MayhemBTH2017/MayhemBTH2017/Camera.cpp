@@ -36,6 +36,7 @@ glm::mat4 Camera::GetView()const
 glm::vec3 Camera::GetCameraPos()const
 {
 	//TBA
+	return glm::vec3(0.0, 0.0, 0.0);
 }
 
 //::.. SET FUNCTIONS ..:://
