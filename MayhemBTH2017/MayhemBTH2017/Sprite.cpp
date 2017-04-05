@@ -2,7 +2,8 @@
 
 
 
-Sprite::Sprite()
+Sprite::Sprite(const std::string & filename, bool geom)
+	: AShader(filename, geom)
 {
 	m_vboID = 0;
 }
@@ -43,21 +44,14 @@ void Sprite::Init(float x, float y, float width, float height)
 
 }
 
-glm::vec3 Sprite::ButtonUpdate(int mouse_x, int mouse_y)
+glm::vec3 Sprite::SetColor(glm::vec3 color)
 {
 
-	if (mouse_x > m_BB.x && mouse_y > m_BB.y
-		&& mouse_x < m_BB.x + m_BB.z
-		&& mouse_y < m_BB.y + m_BB.w)
-	{
-		//change color
-		m_quad.m_color = glm::vec3(1,1,1);
+	//change color
+	m_quad.m_color = color;
 
-	}
-	else
-	{
-		m_quad.m_color = glm::vec3(0, 0, 1);
-	}
+	GLint loc = glGetUniformLocation(GetProgramID(), "color");
+	glProgramUniform3f(GetProgramID(), loc, m_quad.m_color.x, m_quad.m_color.y, m_quad.m_color.z);
 
 	return m_quad.m_color;
 
@@ -65,6 +59,8 @@ glm::vec3 Sprite::ButtonUpdate(int mouse_x, int mouse_y)
 
 void Sprite::Draw()
 {
+	Bind();
+
 	glBindBuffer(GL_ARRAY_BUFFER, m_vboID);
 
 	glEnableVertexAttribArray(0);
@@ -74,4 +70,10 @@ void Sprite::Draw()
 	glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+	Release();
+}
+
+void Sprite::AddAttributeLocation()
+{
 }

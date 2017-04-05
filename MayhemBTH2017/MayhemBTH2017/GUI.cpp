@@ -4,10 +4,10 @@
 
 
 
-GUI::GUI(const std::string & filename, bool geom) 
-	: AShader(filename, geom)
+GUI::GUI() 
 {
-
+	m_selection = 0;
+	m_trueOnce = true;
 }
 
 
@@ -18,15 +18,17 @@ GUI::~GUI()
 void GUI::AddSprite(Sprite sprite)
 {
 	m_spriteArr.PushBack(sprite);
+	if (m_spriteArr.GetSize() == 1)
+	{
+		m_spriteArr[0].SetColor(glm::vec3(1,1,1));
+	}
 }
 
 void GUI::Update()
 {
 
-
-
-	InputManager::Get()->Update();
-	InputManager::Get()->Update();
+	InputManager* inputManager2 = InputManager::Get();
+	
 	/*int mouse_x;
 	int mouse_y;
 
@@ -35,27 +37,45 @@ void GUI::Update()
 	float new_mouseX = VideoManager::Get()->GetScreenWidth() / (float)mouse_x;
 	float new_mouseY = VideoManager::Get()->GetScreenHeight() / (float)mouse_y;*/
 
-	for (int i = 0; i < m_spriteArr.GetSize(); i++)
+	m_down = inputManager2->GetButtonDown(CONTROLLER_BUTTON_DPAD_DOWN);
+	m_up = inputManager2->GetButtonUp(CONTROLLER_BUTTON_DPAD_UP);
+
+
+	if (m_down)
 	{
-		m_spriteArr[i].ButtonUpdate(mouse_x, mouse_y);
+		if (m_trueOnce)
+		{
+			m_selection += 1;
+		}
+		m_trueOnce = false;
 	}
 
-	GLint myLoc = glGetUniformLocation(GetProgramID(), "color");
-	glProgramUniform3f(GetProgramID(), myLoc, 1, 1, 1);
+	if (!m_down)
+	{
+		m_trueOnce = true;
+	}
+
+
+	if (m_down)
+	{
+
+		glm::vec3 white(1,1,1);
+		glm::vec3 black(0, 0, 0);
+		for (int i = 0; i < m_spriteArr.GetSize(); i++)
+		{
+			m_spriteArr[i].SetColor(black);
+		}
+
+		glm::vec3 color = m_spriteArr[m_selection].SetColor(white);
+
+	}
+
 }
 
 void GUI::Render()
 {
-	Bind();
 	for (int i = 0; i < m_spriteArr.GetSize(); i++)
 	{
 		m_spriteArr[i].Draw();
 	}
-
-	Release();
-}
-
-void GUI::AddAttributeLocation()
-{
-
 }

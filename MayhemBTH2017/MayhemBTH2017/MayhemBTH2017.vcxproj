@@ -139,7 +139,10 @@
     <ClCompile Include="InputManager.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="LevelEditor.cpp" />
+    <ClCompile Include="LevelEditor.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="LevelEditorLevel.cpp" />
     <ClCompile Include="main.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClCompile>
@@ -184,7 +187,10 @@
     <ClInclude Include="InputManager.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClInclude>
-    <ClInclude Include="LevelEditor.h" />
+    <ClInclude Include="LevelEditor.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="LevelEditorLevel.h" />
     <ClInclude Include="MemoryManager.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="MeshCache.h" />

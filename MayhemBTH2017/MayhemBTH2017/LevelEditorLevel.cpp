@@ -73,7 +73,7 @@ void LevelEditorLevel::AddSpawnPoint(uint32_t posX, uint32_t posY)
 {
 	if (!GetOccupied(posX, posY))
 	{
-		SetSpawnPoint(posX, posY, !GetIsSpawnPoint);
+		/*SetSpawnPoint(posX, posY, !GetIsSpawnPoint);*/
 	}
 }
 

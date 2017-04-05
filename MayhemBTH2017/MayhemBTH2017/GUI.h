@@ -9,10 +9,10 @@
 #include "String.h"
 
 
-class GUI : public AShader
+class GUI
 {
 public:
-	GUI(const std::string & filename, bool geom);
+	GUI();
 	virtual ~GUI();
 
 	void AddSprite(Sprite sprite);
@@ -22,9 +22,13 @@ public:
 	void Render();
 
 private:
+
+	int m_selection;
+	bool m_up, m_down, m_trueOnce;
+
 	Vector<Sprite> m_spriteArr;
 	Vector<Sprite> m_buttonArr;
-	void AddAttributeLocation();
+	
 
 };
 
