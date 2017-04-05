@@ -45,6 +45,8 @@ void System::Run()
 
 		gui1.Update();
 
+		gui1.Render();
+
 		//l.Update();
 
 		m_inputManager->Reset();

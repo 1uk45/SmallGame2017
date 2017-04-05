@@ -3,9 +3,9 @@
 
 
 Sprite::Sprite(const std::string & filename, bool geom)
-	: AShader(filename, geom)
 {
 	m_vboID = 0;
+	shader = new AShader(filename, geom);
 }
 
 
@@ -50,8 +50,8 @@ glm::vec3 Sprite::SetColor(glm::vec3 color)
 	//change color
 	m_quad.m_color = color;
 
-	GLint loc = glGetUniformLocation(GetProgramID(), "color");
-	glProgramUniform3f(GetProgramID(), loc, m_quad.m_color.x, m_quad.m_color.y, m_quad.m_color.z);
+	GLint loc = glGetUniformLocation(shader->GetProgramID(), "color");
+	glProgramUniform3f(shader->GetProgramID(), loc, m_quad.m_color.x, m_quad.m_color.y, m_quad.m_color.z);
 
 	return m_quad.m_color;
 
@@ -59,7 +59,7 @@ glm::vec3 Sprite::SetColor(glm::vec3 color)
 
 void Sprite::Draw()
 {
-	Bind();
+	shader->Bind();
 
 	glBindBuffer(GL_ARRAY_BUFFER, m_vboID);
 
@@ -71,7 +71,7 @@ void Sprite::Draw()
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 
-	Release();
+	shader->Release();
 }
 
 void Sprite::AddAttributeLocation()

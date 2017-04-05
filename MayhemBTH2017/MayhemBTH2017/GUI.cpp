@@ -20,7 +20,7 @@ void GUI::AddSprite(Sprite sprite)
 	m_spriteArr.PushBack(sprite);
 	if (m_spriteArr.GetSize() == 1)
 	{
-		m_spriteArr[0].SetColor(glm::vec3(1,1,1));
+		m_spriteArr[0].SetColor(glm::vec3(0,1,1));
 	}
 }
 
@@ -66,10 +66,10 @@ void GUI::Update()
 			m_spriteArr[i].SetColor(black);
 		}
 
-		glm::vec3 color = m_spriteArr[m_selection].SetColor(white);
+		//glm::vec3 color = m_spriteArr[m_selection].SetColor(white);
 
 	}
-
+	m_spriteArr[1].SetColor(glm::vec3(1));
 }
 
 void GUI::Render()

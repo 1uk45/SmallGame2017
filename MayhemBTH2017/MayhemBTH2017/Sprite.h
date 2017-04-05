@@ -5,7 +5,7 @@
 #include "GUIQuad.h"
 #include "AShader.h"
 
-class Sprite : public AShader
+class Sprite
 {
 public:
 	Sprite(const std::string & filename, bool geom);
@@ -24,7 +24,7 @@ private:
 	GLuint m_vboID;
 	GUIQuad m_quad;
 	void AddAttributeLocation();
-	
+	AShader *shader;
 };
 
 #endif // !__SPRITE_H__
