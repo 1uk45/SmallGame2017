@@ -3,9 +3,9 @@
 
 
 Sprite::Sprite(const std::string & filename, bool geom)
-	: AShader(filename, geom)
 {
 	m_vboID = 0;
+	shader = new AShader(filename, geom);
 }
 
 
@@ -29,7 +29,8 @@ void Sprite::Init(float x, float y, float width, float height)
 
 	m_quad.m_arr[3].m_position = glm::vec2(x + width, y + height);
 
-	m_quad.m_color = glm::vec3(0, 1, 0);
+	m_quad.m_color = glm::vec3(0, 0, 1);
+
 
 	if (m_vboID == 0)
 	{
@@ -49,19 +50,18 @@ glm::vec3 Sprite::SetColor(glm::vec3 color)
 	//change color
 	m_quad.m_color = color;
 
+	GLint loc = glGetUniformLocation(shader->GetProgramID(), "color");
+	glProgramUniform3f(shader->GetProgramID(), loc, m_quad.m_color.x, m_quad.m_color.y, m_quad.m_color.z);
+
 	return m_quad.m_color;
 
 }
 
 void Sprite::Draw()
 {
-
-	Bind();
+	shader->Bind();
 
 	glBindBuffer(GL_ARRAY_BUFFER, m_vboID);
-
-	GLint loc = glGetUniformLocation(GetProgramID(), "color");
-	glProgramUniform3f(GetProgramID(), loc, m_quad.m_color.x, m_quad.m_color.y, m_quad.m_color.z);
 
 	glEnableVertexAttribArray(0);
 
@@ -71,5 +71,9 @@ void Sprite::Draw()
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 
-	Release();
+	shader->Release();
+}
+
+void Sprite::AddAttributeLocation()
+{
 }
