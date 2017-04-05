@@ -17,13 +17,13 @@ public:
 
 	void Draw();
 
+
 private:
 
 	glm::vec4 m_BB;
 	GLboolean m_isSelected;
 	GLuint m_vboID;
 	GUIQuad m_quad;
-	void AddAttributeLocation();
 	
 };
 

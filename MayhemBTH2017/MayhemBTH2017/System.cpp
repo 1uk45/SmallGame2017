@@ -22,6 +22,15 @@ void System::Run()
 	glDisable(GL_CULL_FACE);
 	LevelEditor l;
 
+	GUI gui1;
+
+	Sprite s1("leo", true);
+
+	s1.Init(0.5f, 0.5f, 0.5f, 0.5f);
+
+	Sprite s2("leo", true);
+
+	s2.Init(0.5f, -0.7f, 0.5f, 0.5f);
 
 	while (true)
 	{
@@ -29,21 +38,13 @@ void System::Run()
 
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		GUI gui1;
-
-		Sprite s1("leo", true);
-
-		s1.Init(0.5f, 0.5f, 0.5f, 0.5f);
-
-		Sprite s2("leo", true);
-
-		s2.Init(0.5f, -0.7f, 0.5f, 0.5f);
-
 		gui1.AddSprite(s1);
 
 		gui1.AddSprite(s2);
 
 		gui1.Update();
+
+		gui1.Render();
 
 		//l.Update();
 
