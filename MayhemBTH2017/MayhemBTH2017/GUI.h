@@ -8,18 +8,19 @@
 #include "Vector.h"
 #include "String.h"
 
-
 class GUI
 {
 public:
 	GUI();
 	virtual ~GUI();
 
-	void AddSprite(Sprite sprite);
+	void AddSprite(Sprite sprite, glm::vec2 pos, glm::vec2 size, bool isButton, glm::vec3 color);
 
 	void Update();
 
 	void Render();
+
+	void Target(bool button1, bool button2, glm::vec3 selectColor, glm::vec3 defaultColor);
 
 private:
 
@@ -28,8 +29,6 @@ private:
 
 	Vector<Sprite> m_spriteArr;
 	Vector<Sprite> m_buttonArr;
-	
-
 };
 
 

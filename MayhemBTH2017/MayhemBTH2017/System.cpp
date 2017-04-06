@@ -26,21 +26,21 @@ void System::Run()
 
 	Sprite s1("leo", true);
 
-	s1.Init(0.5f, 0.5f, 0.5f, 0.5f);
-
 	Sprite s2("leo", true);
 
-	s2.Init(0.5f, -0.7f, 0.5f, 0.5f);
+	s1.Init(0.5f, 0.5f, 0.5f, 0.5f, glm::vec3(1.0, 0.0, 0.0));
+
+	s2.Init(0.5f, -0.7f, 0.5f, 0.5f, glm::vec3(1.0, 0.0, 0.0));
+
+	gui1.AddSprite(s1, glm::vec2(0.5, 0.0), glm::vec2(0.5, 0.5), true, glm::vec3(0.7, 0.7, 0.7));
+
+	gui1.AddSprite(s1, glm::vec2(-0.5, 0.0), glm::vec2(0.5, 0.5), true, glm::vec3(0.7, 0.7, 0.7));
 
 	while (true)
 	{
 		m_inputManager->Update();
 
 		glClear(GL_COLOR_BUFFER_BIT);
-
-		gui1.AddSprite(s1);
-
-		gui1.AddSprite(s2);
 
 		gui1.Update();
 

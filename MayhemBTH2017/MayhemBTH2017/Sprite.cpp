@@ -6,6 +6,7 @@ Sprite::Sprite(const std::string & filename, bool geom)
 {
 	m_vboID = 0;
 	shader = new AShader(filename, geom);
+	m_loc = glGetUniformLocation(shader->GetProgramID(), "color");
 }
 
 
@@ -13,7 +14,7 @@ Sprite::~Sprite()
 {
 }
 
-void Sprite::Init(float x, float y, float width, float height)
+void Sprite::Init(float x, float y, float width, float height, glm::vec3 color)
 {
 
 	m_BB.x = x;
@@ -29,7 +30,7 @@ void Sprite::Init(float x, float y, float width, float height)
 
 	m_quad.m_arr[3].m_position = glm::vec2(x + width, y + height);
 
-	m_quad.m_color = glm::vec3(0, 0, 1);
+	m_quad.m_color = color;
 
 
 	if (m_vboID == 0)
@@ -50,16 +51,20 @@ glm::vec3 Sprite::SetColor(glm::vec3 color)
 	//change color
 	m_quad.m_color = color;
 
-	GLint loc = glGetUniformLocation(shader->GetProgramID(), "color");
-	glProgramUniform3f(shader->GetProgramID(), loc, m_quad.m_color.x, m_quad.m_color.y, m_quad.m_color.z);
-
 	return m_quad.m_color;
 
+}
+
+void Sprite::setTexture(std::string filePath)
+{
+	m_texture = ImageLoader::loadBMP(filePath);
 }
 
 void Sprite::Draw()
 {
 	shader->Bind();
+
+	glProgramUniform3f(shader->GetProgramID(), m_loc, m_quad.m_color.x, m_quad.m_color.y, m_quad.m_color.z);
 
 	glBindBuffer(GL_ARRAY_BUFFER, m_vboID);
 
@@ -70,8 +75,6 @@ void Sprite::Draw()
 	glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
-
-	shader->Release();
 }
 
 void Sprite::AddAttributeLocation()

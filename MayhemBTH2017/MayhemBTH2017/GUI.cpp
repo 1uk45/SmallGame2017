@@ -15,12 +15,18 @@ GUI::~GUI()
 {
 }
 
-void GUI::AddSprite(Sprite sprite)
+void GUI::AddSprite(Sprite sprite, glm::vec2 pos, glm::vec2 size, bool isButton, glm::vec3 color)
 {
-	m_spriteArr.PushBack(sprite);
-	if (m_spriteArr.GetSize() == 1)
+	if (!isButton)
 	{
-		m_spriteArr[0].SetColor(glm::vec3(0,1,1));
+		sprite.Init(pos.x, pos.y, size.x, size.y, color);
+		m_spriteArr.PushBack(sprite);
+	}
+
+	if (isButton)
+	{
+		sprite.Init(pos.x, pos.y, size.x, size.y, color);
+		m_buttonArr.PushBack(sprite);
 	}
 }
 
@@ -28,48 +34,12 @@ void GUI::Update()
 {
 
 	InputManager* inputManager2 = InputManager::Get();
-	
-	/*int mouse_x;
-	int mouse_y;
-
-	SDL_GetMouseState(&mouse_x, &mouse_y);
-
-	float new_mouseX = VideoManager::Get()->GetScreenWidth() / (float)mouse_x;
-	float new_mouseY = VideoManager::Get()->GetScreenHeight() / (float)mouse_y;*/
 
 	m_down = inputManager2->GetButtonDown(CONTROLLER_BUTTON_DPAD_DOWN);
-	m_up = inputManager2->GetButtonUp(CONTROLLER_BUTTON_DPAD_UP);
+	m_up = inputManager2->GetButtonDown(CONTROLLER_BUTTON_DPAD_UP);
 
-
-	if (m_down)
-	{
-		if (m_trueOnce)
-		{
-			m_selection += 1;
-		}
-		m_trueOnce = false;
-	}
-
-	if (!m_down)
-	{
-		m_trueOnce = true;
-	}
-
-
-	if (m_down)
-	{
-
-		glm::vec3 white(1,1,1);
-		glm::vec3 black(0, 0, 0);
-		for (int i = 0; i < m_spriteArr.GetSize(); i++)
-		{
-			m_spriteArr[i].SetColor(black);
-		}
-
-		//glm::vec3 color = m_spriteArr[m_selection].SetColor(white);
-
-	}
-	m_spriteArr[1].SetColor(glm::vec3(1));
+	Target(m_down, m_up, glm::vec3(0.5, 0.5, 0.7), glm::vec3(0.9, 0.2, 0.7));
+	m_buttonArr[1].SetColor(glm::vec3(1.0, 1.0, 1.0));
 }
 
 void GUI::Render()
@@ -78,4 +48,31 @@ void GUI::Render()
 	{
 		m_spriteArr[i].Draw();
 	}
+	for (int i = 0; i < m_buttonArr.GetSize(); i++)
+	{
+		m_buttonArr[i].Draw();
+	}
+}
+
+void GUI::Target(bool down, bool up, glm::vec3 selectColor, glm::vec3 defaultColor)
+{
+	if (down)
+	{
+		if (m_selection < m_buttonArr.GetSize() - 1)
+		{
+			m_selection++;
+			m_buttonArr[m_selection - 1].SetColor(defaultColor);
+			m_buttonArr[m_selection].SetColor(selectColor);
+		}
+	}
+	if (up)
+	{
+		if (m_selection > 0)
+		{
+			m_selection--;
+			m_buttonArr[m_selection + 1].SetColor(defaultColor);
+			m_buttonArr[m_selection].SetColor(selectColor);
+		}
+	}
+
 }

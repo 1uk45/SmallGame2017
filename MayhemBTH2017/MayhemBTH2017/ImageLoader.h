@@ -12,7 +12,7 @@
 class ImageLoader
 {
 public:
-	static GLTexture loadBMP(String filepath);
+	static GLTexture loadBMP(std::string filepath);
 };
 
 
