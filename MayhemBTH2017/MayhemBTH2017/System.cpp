@@ -4,8 +4,6 @@
 #include "LevelEditor.h"
 #include "InputManager.h"
 
-
-
 System::System()
 {
 	Init();
@@ -21,20 +19,18 @@ void System::Run()
 {
 	glDisable(GL_CULL_FACE);
 	LevelEditor l;
+	
+	GUI menu;
 
-	GUI gui1;
+	menu.AddSprite(glm::vec2(0.0, 0.0), glm::vec2(0.6, 0.2), true);
 
-	Sprite s1("leo", true);
+	menu.AddSprite(glm::vec2(0.0, -0.3), glm::vec2(0.6, 0.2), true);
 
-	Sprite s2("leo", true);
+	menu.AddSprite(glm::vec2(0.0, -0.6), glm::vec2(0.6, 0.2), true);
 
-	s1.Init(0.5f, 0.5f, 0.5f, 0.5f, glm::vec3(1.0, 0.0, 0.0));
 
-	s2.Init(0.5f, -0.7f, 0.5f, 0.5f, glm::vec3(1.0, 0.0, 0.0));
-
-	gui1.AddSprite(s1, glm::vec2(0.5, 0.0), glm::vec2(0.5, 0.5), true, glm::vec3(0.7, 0.7, 0.7));
-
-	gui1.AddSprite(s1, glm::vec2(-0.5, 0.0), glm::vec2(0.5, 0.5), true, glm::vec3(0.7, 0.7, 0.7));
+	
+	SDL_Color White = { 255, 255, 255 };
 
 	while (true)
 	{
@@ -42,9 +38,11 @@ void System::Run()
 
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		gui1.Update();
+		menu.Update();
 
-		gui1.Render();
+		menu.SelectionUpdate();
+
+		menu.Render();
 
 		//l.Update();
 

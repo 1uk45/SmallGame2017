@@ -8,27 +8,31 @@
 #include "Vector.h"
 #include "String.h"
 
+
 class GUI
 {
 public:
 	GUI();
 	virtual ~GUI();
 
-	void AddSprite(Sprite sprite, glm::vec2 pos, glm::vec2 size, bool isButton, glm::vec3 color);
+	void AddSprite(glm::vec2 pos, glm::vec2 size, bool isButton);
 
 	void Update();
 
 	void Render();
 
-	void Target(bool button1, bool button2, glm::vec3 selectColor, glm::vec3 defaultColor);
+	void SelectionUpdate();
+
+	int GetSelect();
 
 private:
 
 	int m_selection;
-	bool m_up, m_down, m_trueOnce;
+	glm::vec4 defaultColor, selectColor;
 
 	Vector<Sprite> m_spriteArr;
 	Vector<Sprite> m_buttonArr;
+
 };
 
 

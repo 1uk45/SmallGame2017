@@ -1,12 +1,12 @@
 #version 420
 
-out vec4 Colour;
+out vec4 Color;
 
-uniform vec3 color;
+uniform vec4 color;
 
 void main()
 {
-
-	Colour = vec4(color, 1.0);
+	
+	Color = color;
 	
 }
