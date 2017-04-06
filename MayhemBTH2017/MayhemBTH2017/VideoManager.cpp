@@ -122,7 +122,6 @@ void VideoManager::Swap()
 }
 
 //::.. SET FUNCTIONS ..:://
-
 void VideoManager::SetIsClosed(bool x)
 {
 	m_isClosed = x;

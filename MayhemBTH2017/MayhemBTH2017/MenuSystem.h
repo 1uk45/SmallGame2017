@@ -3,7 +3,7 @@
 
 
 #include "Menu.h"
-
+#include "Text.h"
 
 class MenuSystem
 {
@@ -15,7 +15,7 @@ public:
 
 private:
 	Menu m_test;
-
+	Text t;
 
 };
 
