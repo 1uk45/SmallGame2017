@@ -2,18 +2,18 @@
 #define __STATEMANAGER_H__
 
 
+enum class State
+{
+	START,
+	MAIN_MENU,
+	LEVEL_EDITOR,
+	GAME,
+	EXIT
+};
+
 class StateManager
 {
 public:
-	enum class State
-	{
-		START,
-		MAIN_MENU,
-		LEVEL_EDITOR,
-		GAME,
-		EXIT
-	};
-
 	//::.. DUMMY CONSTRUCTORS ..:://
 	StateManager();
 	virtual ~StateManager();
@@ -26,7 +26,7 @@ public:
 	void SetCurrentState(State state);
 
 	//::.. GET FUNCTIONS ..:://
-	StateManager * Get();
+	static StateManager * Get();
 	State GetCurrentState();
 
 private:

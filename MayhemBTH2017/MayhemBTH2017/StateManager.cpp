@@ -37,16 +37,17 @@ void StateManager::ShutDown()
 //::.. SET FUNCTIONS ..:://
 void StateManager::SetCurrentState(State state)
 {
+	m_currentState = state;
 }
 
+
+//::.. GET FUNCTIONS ..:://
 StateManager * StateManager::Get()
 {
 	return m_instance;
 }
 
-
-//::.. GET FUNCTIONS ..:://
-StateManager::State StateManager::GetCurrentState()
+State StateManager::GetCurrentState()
 {
 	return m_currentState;
 }

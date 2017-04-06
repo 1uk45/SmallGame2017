@@ -4,7 +4,7 @@
 #include <glew.h>
 #include "GUIQuad.h"
 #include "AShader.h"
-#include "ImageLoader.h"
+
 
 class Sprite
 {
@@ -12,23 +12,25 @@ public:
 	Sprite(const std::string & filename, bool geom);
 	virtual ~Sprite();
 
-	void Init(float x, float y, float width, float height, glm::vec3 color);
+	void Init(float x, float y, float width, float height);
 
 	void SetColor(glm::vec4 color);
 
-	void setTexture(std::string filePath);
+	void SetTexture(std::string filepath);
 
 	void Draw();
+
+private:
+	void AddAttributeLocation();
 
 private:
 	GLint m_loc;
 	GLint m_locTex;
 	GLint m_locUV;
-	glm::vec4 m_BB;
+	glm::vec4 m_bb;
 	GLboolean m_isSelected;
 	GLuint m_vboID;
 	GUIQuad m_quad;
-	void AddAttributeLocation();
 	AShader *shader;
 	GLTexture m_texture;
 };

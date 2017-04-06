@@ -27,6 +27,9 @@ int main(int argc, char *argv[])
 	// Init all singleton managers.
 	BigInit();
 
+	// TEMP
+	g_stateManager.SetCurrentState(State::MAIN_MENU);
+
 	// Create the main system.
 	System system;
 

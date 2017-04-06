@@ -1,19 +1,23 @@
 #ifndef __GUI_H__
 #define __GUI_H__
 
-#include <SDL.h>
 
 #include "AShader.h"
 #include "Sprite.h"
 #include "Vector.h"
 #include "String.h"
+#include "InputManager.h"
+#include "VideoManager.h"
 
 
-class GUI
+#include <SDL.h>
+
+
+class Menu
 {
 public:
-	GUI();
-	virtual ~GUI();
+	Menu();
+	virtual ~Menu();
 
 	void AddSprite(glm::vec2 pos, glm::vec2 size, bool isButton);
 

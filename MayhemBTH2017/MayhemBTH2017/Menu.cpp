@@ -1,10 +1,8 @@
-#include "GUI.h"
-#include "InputManager.h"
-#include "VideoManager.h"
+#include "Menu.h"
 
+#include <sdl_ttf.h>
 
-
-GUI::GUI() 
+Menu::Menu() 
 {
 	m_selection = 0;
 	defaultColor = glm::vec4(0.0, 0.5, 0.5, 0.0);
@@ -12,11 +10,11 @@ GUI::GUI()
 }
 
 
-GUI::~GUI()
+Menu::~Menu()
 {
 }
 
-void GUI::AddSprite(glm::vec2 pos, glm::vec2 size, bool isButton)
+void Menu::AddSprite(glm::vec2 pos, glm::vec2 size, bool isButton)
 {
 
 	//ändra så att sprite class har color etc...
@@ -41,12 +39,12 @@ void GUI::AddSprite(glm::vec2 pos, glm::vec2 size, bool isButton)
 	}
 }
 
-void GUI::Update()
+void Menu::Update()
 {
 	
 }
 
-void GUI::Render()
+void Menu::Render()
 {
 	for (int i = 0; i < m_spriteArr.GetSize(); i++)
 	{
@@ -59,7 +57,7 @@ void GUI::Render()
 	}
 }
 
-void GUI::SelectionUpdate()
+void Menu::SelectionUpdate()
 {
 	//m_down = InputManager::Get()->GetButtonDown(CONTROLLER_BUTTON_DPAD_DOWN);
 	//m_up = InputManager::Get()->GetButtonDown(CONTROLLER_BUTTON_DPAD_UP);
@@ -107,7 +105,7 @@ void GUI::SelectionUpdate()
 	}
 }
 
-int GUI::GetSelect()
+int Menu::GetSelect()
 {
 	return m_selection;
 }

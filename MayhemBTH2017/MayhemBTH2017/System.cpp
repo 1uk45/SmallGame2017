@@ -3,7 +3,8 @@
 
 #include "LevelEditor.h"
 #include "InputManager.h"
-
+#include "StateManager.h"
+#include "MenuSystem.h"
 
 
 System::System()
@@ -25,13 +26,26 @@ void System::Run()
 	glDepthFunc(GL_LESS);
 	glEnable(GL_DEPTH_TEST);
 
+	StateManager * s;
+	s = StateManager::Get();
+	MenuSystem mainMenu;
 
 	while (true)
 	{
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		m_inputManager->Update();
 
-		l.Update();
+		switch (s->GetCurrentState())
+		{
+		case State::MAIN_MENU:
+			mainMenu.Update();
+			break;
+		case State::LEVEL_EDITOR:
+			l.Update();
+			break;
+		default:
+			break;
+		}
 
 		m_inputManager->Reset();
 

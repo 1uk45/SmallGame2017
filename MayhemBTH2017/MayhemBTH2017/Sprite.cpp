@@ -16,23 +16,23 @@ Sprite::~Sprite()
 void Sprite::Init(float x, float y, float width, float height)
 {
 
-	m_BB.x = x - width / 2;
-	m_BB.y = y - height / 2;
-	m_BB.z = x + width / 2;
-	m_BB.w = y + height / 2;
+	m_bb.x = x - width / 2;
+	m_bb.y = y - height / 2;
+	m_bb.z = x + width / 2;
+	m_bb.w = y + height / 2;
 
 	//m_BB.x = x;
 	//m_BB.y = y;
 	//m_BB.z = x + width;
 	//m_BB.w = y + height;
 
-	m_quad.m_arr[0].m_position = glm::vec2(m_BB.x, m_BB.y);
+	m_quad.m_arr[0].m_position = glm::vec2(m_bb.x, m_bb.y);
 
-	m_quad.m_arr[1].m_position = glm::vec2(m_BB.z, m_BB.y);
+	m_quad.m_arr[1].m_position = glm::vec2(m_bb.z, m_bb.y);
 
-	m_quad.m_arr[2].m_position = glm::vec2(m_BB.x, m_BB.w);
+	m_quad.m_arr[2].m_position = glm::vec2(m_bb.x, m_bb.w);
 
-	m_quad.m_arr[3].m_position = glm::vec2(m_BB.z, m_BB.w);
+	m_quad.m_arr[3].m_position = glm::vec2(m_bb.z, m_bb.w);
 
 	if (m_vboID == 0)
 	{
