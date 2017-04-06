@@ -162,12 +162,13 @@
     <ClCompile Include="MenuSystem.cpp">
       <Filter>Engine\MainMenu</Filter>
     </ClCompile>
-    <ClCompile Include="Menu.cpp">
-      <Filter>Engine\MainMenu</Filter>
-    </ClCompile>
     <ClCompile Include="Text.cpp">
       <Filter>Engine\GUI</Filter>
     </ClCompile>
+    <ClCompile Include="Canvas.cpp">
+      <Filter>Engine\MainMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="AMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="VideoManager.h">
@@ -275,12 +276,13 @@
     <ClInclude Include="MenuSystem.h">
       <Filter>Engine\MainMenu</Filter>
     </ClInclude>
-    <ClInclude Include="Menu.h">
-      <Filter>Engine\MainMenu</Filter>
-    </ClInclude>
     <ClInclude Include="Text.h">
       <Filter>Engine\GUI</Filter>
     </ClInclude>
+    <ClInclude Include="Canvas.h">
+      <Filter>Engine\MainMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="AMenu.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DebugShader.frag">

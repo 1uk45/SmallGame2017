@@ -53,7 +53,7 @@ void Sprite::SetColor(glm::vec4 color)
 
 }
 
-void Sprite::Draw()
+void Sprite::Render()
 {
 	shader->Bind();
 

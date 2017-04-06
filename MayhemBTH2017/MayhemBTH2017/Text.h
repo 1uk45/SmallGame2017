@@ -2,6 +2,11 @@
 #define __TEXT_H__
 
 
+#include "AShader.h"
+#include "GUIQuad.h"
+
+#include <glm.hpp>
+#include <glew.h>
 #include <SDL_ttf.h>
 
 
@@ -11,15 +16,27 @@ public:
 	Text();
 	virtual ~Text();
 
+	void Init(float x, float y, float width, float height);
+	void SetColor(glm::vec4 color);
 	void Render();
-private:
-	SDL_Renderer* m_renderer;
-	TTF_Font * m_font;
-	SDL_Color m_color;
-	SDL_Surface* m_surfaceMessage;
-	SDL_Texture* m_message;
+	void Bind();
 
-	SDL_Rect m_messageRect;
+private:
+	void AddAttributeLocation();
+
+private:
+	GLint m_loc;
+	GLint m_locTex;
+	GLint m_locUV;
+	glm::vec4 m_bb;
+	GLboolean m_isSelected;
+	GLuint m_vboID;
+	GUIQuad m_quad;
+	AShader *m_shader;
+	GLTexture m_text;
+	GLuint m_texture;
+	Mesh m_mesh;
+	Transform m_transform;
 
 };
 

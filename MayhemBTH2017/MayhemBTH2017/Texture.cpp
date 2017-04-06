@@ -14,6 +14,7 @@ Texture::~Texture()
 
 void Texture::LoadTexture(GLuint * textureData, GLsizei width, GLsizei height, GLuint numComponents)
 {
+	glClearColor(1, 0, 1, 1);
 	glGenTextures(1, &m_texture);
 	glBindTexture(GL_TEXTURE_2D, m_texture);
 	

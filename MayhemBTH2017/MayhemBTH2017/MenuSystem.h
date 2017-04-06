@@ -2,7 +2,7 @@
 #define __MAINMENU_H__
 
 
-#include "Menu.h"
+#include "Canvas.h"
 #include "Text.h"
 
 class MenuSystem
@@ -14,7 +14,7 @@ public:
 	void Update();
 
 private:
-	Menu m_test;
+	Canvas m_test;
 	Text t;
 
 };
