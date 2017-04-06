@@ -13,7 +13,7 @@ public:
 
 	void Init(float x, float y, float width, float height);
 
-	glm::vec3 SetColor(glm::vec3 color);
+	void SetColor(glm::vec4 color);
 
 	void Draw();
 

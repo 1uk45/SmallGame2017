@@ -131,6 +131,7 @@
     <ClCompile Include="LevelEditorLevel.cpp">
       <Filter>Game</Filter>
     </ClCompile>
+    <ClCompile Include="GUIManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="VideoManager.h">
@@ -216,6 +217,7 @@
     <ClInclude Include="LevelEditorLevel.h">
       <Filter>Game</Filter>
     </ClInclude>
+    <ClInclude Include="GUIManager.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="leo.frag" />
