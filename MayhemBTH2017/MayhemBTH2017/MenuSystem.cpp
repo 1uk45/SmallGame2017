@@ -4,8 +4,8 @@
 
 MenuSystem::MenuSystem()
 {
-	m_test.AddSprite(glm::vec2(0.0f), glm::vec2(0.3f), true);
-	m_test.AddSprite(glm::vec2(-0.3f), glm::vec2(0.3f), true);
+	m_test.AddButton(glm::vec2(0.0f), glm::vec2(0.3f));
+	m_test.AddButton(glm::vec2(-0.3f), glm::vec2(0.3f));
 }
 
 MenuSystem::~MenuSystem()

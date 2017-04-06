@@ -19,7 +19,9 @@ public:
 	Menu();
 	virtual ~Menu();
 
-	void AddSprite(glm::vec2 pos, glm::vec2 size, bool isButton);
+	void AddSprite(glm::vec2 pos, glm::vec2 size);
+
+	void AddButton(glm::vec2 pos, glm::vec2 size);
 
 	void Update();
 

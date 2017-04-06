@@ -14,28 +14,29 @@ Menu::~Menu()
 {
 }
 
-void Menu::AddSprite(glm::vec2 pos, glm::vec2 size, bool isButton)
+void Menu::AddSprite(glm::vec2 pos, glm::vec2 size)
 {
 
 	//ändra så att sprite class har color etc...
 	Sprite newSprite("leo", true);
-	if (!isButton)
-	{
-		newSprite.Init(pos.x, pos.y, size.x, size.y);
-		newSprite.SetColor(defaultColor);
-		m_spriteArr.PushBack(newSprite);
-	}
 
-	if (isButton)
-	{
-		newSprite.Init(pos.x, pos.y, size.x, size.y);
-		newSprite.SetColor(defaultColor);
-		m_buttonArr.PushBack(newSprite);
+	newSprite.Init(pos.x, pos.y, size.x, size.y);
+	newSprite.SetColor(defaultColor);
+	m_spriteArr.PushBack(newSprite);
 
-		if (m_buttonArr.GetSize() == 1)
-		{
-			m_buttonArr[0].SetColor(selectColor);
-		}
+}
+
+void Menu::AddButton(glm::vec2 pos, glm::vec2 size)
+{
+	Sprite newSprite("leo", true);
+
+	newSprite.Init(pos.x, pos.y, size.x, size.y);
+	newSprite.SetColor(defaultColor);
+	m_buttonArr.PushBack(newSprite);
+
+	if (m_buttonArr.GetSize() == 1)
+	{
+		m_buttonArr[0].SetColor(selectColor);
 	}
 }
 
