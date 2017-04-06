@@ -3,8 +3,9 @@
 
 
 #include "InputManager.h"
-#include "LevelEditorLevel.h"
-
+#include "Level.h"
+#include "Timer.h"
+#include "TextureImporter.h"
 
 #include <glm.hpp>
 #include <cstdint>
@@ -13,8 +14,8 @@
 class LevelEditor
 {
 public:
-	const static int SIZE_X = 16;
-	const static int SIZE_Y = 16;
+	const static int SIZE_X = 84;
+	const static int SIZE_Y = 48;
 
 	//::.. CONSTRUCTORS ..:://
 	LevelEditor();
@@ -25,18 +26,28 @@ public:
 
 private:
 	//::.. HELP FUNCTIONS ..:://
-	void Move();
+	void AxisMove();
+	void ButtonInput();
 	void ClampPos();
-
+	void RenderSelector();
 
 private:
 	InputManager *		m_input;	
 
-	LevelEditorLevel	m_level;
+	Level				m_level;
 
-	uint32_t			m_posX;
-	uint32_t			m_posY;
+	AShader				m_green;
+	uint32_t			m_currentPosX;
+	uint32_t			m_currentPosY;
+	uint32_t			m_savedPosX;
+	uint32_t			m_savedPosY;
+	Transform			m_transform;
+	Camera				m_camera;
+	Mesh				m_mesh;
 
+	Timer				m_timer;
+	TextureImporter		texImp;
+	Texture				m_texture;
 };
 
 #endif // __LEVELEDITOR_H__

@@ -82,6 +82,11 @@ bool PlayerController::GetButtonUp(size_t button)
 	return m_button[button].isUp;
 }
 
+float PlayerController::GetAxisDirection(size_t button)
+{
+	return m_button[button].axisDirection;
+}
+
 size_t PlayerController::GetNumButtons()
 {
 	return NUM_BUTTONS;
@@ -96,7 +101,10 @@ void PlayerController::Init()
 		m_button[i].isDown = false;
 		m_button[i].isHeld = false;
 		m_button[i].isUp = false;
+		m_button[i].axisDirection = 0;
 	}
+
+	m_deadzone = 0.3f;
 }
 
 
@@ -111,7 +119,7 @@ void PlayerController::ButtonDown(const SDL_ControllerButtonEvent controllerEven
 
 	case SDL_CONTROLLER_BUTTON_B:
 		m_button[CONTROLLER_BUTTON_B].isHeld = true;
-		m_button[CONTROLLER_BUTTON_B].isDown = false;
+		m_button[CONTROLLER_BUTTON_B].isDown = true;
 		break;
 
 	case SDL_CONTROLLER_BUTTON_X:
@@ -177,7 +185,7 @@ void PlayerController::ButtonUp(const SDL_ControllerButtonEvent controllerEvent)
 		break;
 
 	case SDL_CONTROLLER_BUTTON_B:
-		m_button[CONTROLLER_BUTTON_B].isUp = false;
+		m_button[CONTROLLER_BUTTON_B].isUp = true;
 		m_button[CONTROLLER_BUTTON_B].isHeld = false;
 		break;
 
@@ -239,26 +247,118 @@ void PlayerController::AxisInput(const SDL_ControllerAxisEvent controllerEvent)
 
 	switch (controllerEvent.axis)
 	{
+
 		//Left Stick
+		//Horizonal
 	case SDL_CONTROLLER_AXIS_LEFTX:
-		if (controllerEvent.value > 2500 || controllerEvent.value < -2500)
-			std::cout << "AXIS_LEFTX Value: " << controllerEvent.value << std::endl;
-		break;
+		if (ScaleRange(controllerEvent.value) > m_deadzone || ScaleRange(controllerEvent.value) < -m_deadzone)
+		{
+			m_button[CONTROLLER_AXIS_LEFTX].isHeld = true;
+			m_button[CONTROLLER_AXIS_LEFTX].isDown = true;
+			m_button[CONTROLLER_AXIS_LEFTX].axisDirection = ScaleRange(controllerEvent.value);
 
+			if (m_button[CONTROLLER_AXIS_LEFTX].axisDirection > m_deadzone)
+			{
+				m_button[CONTROLLER_AXIS_LEFTX].axisDirection = 1.0f;
+			}
+
+			if (m_button[CONTROLLER_AXIS_LEFTX].axisDirection < -m_deadzone)
+			{
+				m_button[CONTROLLER_AXIS_LEFTX].axisDirection = -1.0f;
+			}
+		}
+		else
+		{
+			m_button[CONTROLLER_AXIS_LEFTX].isHeld = false;
+			m_button[CONTROLLER_AXIS_LEFTX].isDown = false;
+			m_button[CONTROLLER_AXIS_LEFTX].axisDirection = 0.0f;
+		}
+		break;
+		//Vetical
 	case SDL_CONTROLLER_AXIS_LEFTY:
-		if (controllerEvent.value > 1500 || controllerEvent.value < -1500)
-			std::cout << "AXIS_LEFTY Value: " << controllerEvent.value << std::endl;
+		if (ScaleRange(controllerEvent.value) > m_deadzone || ScaleRange(controllerEvent.value) < -m_deadzone)
+		{
+			m_button[CONTROLLER_AXIS_LEFTY].isHeld = true;
+			m_button[CONTROLLER_AXIS_LEFTY].isDown = true;
+			m_button[CONTROLLER_AXIS_LEFTY].axisDirection = ScaleRange(controllerEvent.value);
+
+			if (m_button[CONTROLLER_AXIS_LEFTY].axisDirection > m_deadzone)
+			{
+				m_button[CONTROLLER_AXIS_LEFTY].axisDirection = 1.0f;
+			}
+
+			if (m_button[CONTROLLER_AXIS_LEFTY].axisDirection < -m_deadzone)
+			{
+				m_button[CONTROLLER_AXIS_LEFTY].axisDirection = -1.0f;
+			}
+		}
+		else
+		{
+			m_button[CONTROLLER_AXIS_LEFTY].isHeld = false;
+			m_button[CONTROLLER_AXIS_LEFTY].isDown = false;
+			m_button[CONTROLLER_AXIS_LEFTY].axisDirection = 0.0f;
+		}
 		break;
 
-		//Right Stick
+
+		//Right stick
+		//Horizontal
 	case SDL_CONTROLLER_AXIS_RIGHTX:
-		if (controllerEvent.value > 3500 || controllerEvent.value < -3500)
-			std::cout << "AXIS_RIGHTX Value: " << controllerEvent.value << std::endl;
+		if (ScaleRange(controllerEvent.value) > m_deadzone || ScaleRange(controllerEvent.value) < -m_deadzone)
+		{
+			m_button[CONTROLLER_AXIS_RIGHTX].isHeld = true;
+			m_button[CONTROLLER_AXIS_RIGHTX].isDown = true;
+			m_button[CONTROLLER_AXIS_RIGHTX].axisDirection = ScaleRange(controllerEvent.value);
+
+			if (m_button[CONTROLLER_AXIS_RIGHTX].axisDirection > m_deadzone)
+			{
+				m_button[CONTROLLER_AXIS_RIGHTX].axisDirection = 1.0f;
+			}
+
+			if (m_button[CONTROLLER_AXIS_RIGHTX].axisDirection < -m_deadzone)
+			{
+				m_button[CONTROLLER_AXIS_RIGHTX].axisDirection = -1.0f;
+			}
+		}
+		else
+		{
+			m_button[CONTROLLER_AXIS_RIGHTX].isHeld = false;
+			m_button[CONTROLLER_AXIS_RIGHTX].isDown = false;
+			m_button[CONTROLLER_AXIS_RIGHTX].axisDirection = 0.0f;
+		}
 		break;
 
 	case SDL_CONTROLLER_AXIS_RIGHTY:
-		if (controllerEvent.value > 3500 || controllerEvent.value < -3500)
-			std::cout << "AXIS_RIGHTY Value: " << controllerEvent.value << std::endl;
+		if (ScaleRange(controllerEvent.value) > m_deadzone || ScaleRange(controllerEvent.value) < -m_deadzone)
+		{
+			m_button[CONTROLLER_AXIS_RIGHTY].isHeld = true;
+			m_button[CONTROLLER_AXIS_RIGHTY].isDown = true;
+			m_button[CONTROLLER_AXIS_RIGHTY].axisDirection = ScaleRange(controllerEvent.value);
+
+			if (m_button[CONTROLLER_AXIS_RIGHTY].axisDirection > m_deadzone)
+			{
+				m_button[CONTROLLER_AXIS_RIGHTY].axisDirection = 1.0f;
+			}
+
+			if (m_button[CONTROLLER_AXIS_RIGHTY].axisDirection < -m_deadzone)
+			{
+				m_button[CONTROLLER_AXIS_RIGHTY].axisDirection = -1.0f;
+			}
+		}
+		else
+		{
+			m_button[CONTROLLER_AXIS_RIGHTY].isHeld = false;
+			m_button[CONTROLLER_AXIS_RIGHTY].isDown = false;
+			m_button[CONTROLLER_AXIS_RIGHTY].axisDirection = 0.0f;
+		}
 		break;
 	}
+}
+
+float PlayerController::ScaleRange(Sint16 value)
+{
+	//Scale range to [-1, 1]
+	float result = (2.0f * ((value - (-32768.0f)) / (32767.0f - (-32768.0f))) - 1.0f);
+
+	return result;
 }
