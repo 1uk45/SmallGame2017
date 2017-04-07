@@ -18,7 +18,7 @@ public:
 
 	void SetTexture(std::string filepath);
 
-	void Draw();
+	void Render();
 
 private:
 	void AddAttributeLocation();

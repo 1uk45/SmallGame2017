@@ -2,8 +2,8 @@
 #define __MAINMENU_H__
 
 
-#include "Menu.h"
-
+#include "Canvas.h"
+#include "Text.h"
 
 class MenuSystem
 {
@@ -13,15 +13,9 @@ public:
 
 	void Update();
 
-	void SelectionUpdate();
-
-	Void MenuSelection();
-
 private:
-	Menu m_test;
-
-	glm::vec4 defaultColor, selectColor;
-	int m_selection;
+	Canvas m_test;
+	Text t;
 
 };
 

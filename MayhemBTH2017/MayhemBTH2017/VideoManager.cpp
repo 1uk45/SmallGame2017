@@ -34,6 +34,25 @@ void VideoManager::ShutDown()
 }
 
 
+//::.. SET FUNCTIONS ..:://
+void VideoManager::SetIsOpen(bool isOpen)
+{
+	m_isOpen = isOpen;
+}
+
+void VideoManager::SetScreenResolution(uint32_t x)
+{
+	m_screenHeight = x;
+}
+
+
+
+void VideoManager::Swap()
+{
+	SDL_GL_SwapWindow(m_window);
+}
+
+
 //::.. GET FUNCTIONS ..:://
 VideoManager * VideoManager::Get()
 {
@@ -41,22 +60,22 @@ VideoManager * VideoManager::Get()
 }
 
 
-bool VideoManager::GetIsClosed()const
+bool VideoManager::GetIsOpen() const
 {
-	return m_isClosed;
+	return m_isOpen;
 }
 
-int VideoManager::GetScreenHeight()const
+int VideoManager::GetScreenHeight() const
 {
 	return m_screenHeight;
 }
 
-int VideoManager::GetScreenWidth()const
+int VideoManager::GetScreenWidth() const
 {
 	return m_screenWidth;
 }
 
-SDL_Window* VideoManager::GetWindow()const
+SDL_Window* VideoManager::GetWindow() const
 {
 	return m_window;
 }
@@ -72,6 +91,7 @@ static void APIENTRY openglCallbackFunction(GLenum source, GLenum type, GLuint i
 }
 
 #endif
+
 
 //::.. HELPER FUNCTIONS ..:://
 void VideoManager::Init()
@@ -93,7 +113,8 @@ void VideoManager::Init()
 	m_window = SDL_CreateWindow("Test", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
 		1280, 720, SDL_WINDOW_OPENGL);
 
-//	SDL_SetWindowFullscreen(m_window, SDL_WINDOW_FULLSCREEN);
+
+	//	SDL_SetWindowFullscreen(m_window, SDL_WINDOW_FULLSCREEN);
 
 	m_glContext = SDL_GL_CreateContext(m_window);
 	GLenum status = glewInit();
@@ -110,31 +131,5 @@ void VideoManager::Init()
 		GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, NULL, true);
 
 
-	m_isClosed = false;
+	m_isOpen = true;
 }
-
-
-
-
-void VideoManager::Swap()
-{
-	SDL_GL_SwapWindow(m_window);
-}
-
-//::.. SET FUNCTIONS ..:://
-
-void VideoManager::SetIsClosed(bool x)
-{
-	m_isClosed = x;
-}
-
-void VideoManager::SetScreenHeight(int x)
-{
-	m_screenHeight = x;
-}
-
-void VideoManager::SetScreenWidth(int x)
-{
-	m_screenWidth = x;
-}
-

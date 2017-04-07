@@ -1,5 +1,5 @@
-#ifndef __GUI_H__
-#define __GUI_H__
+#ifndef __CANVAS_H__
+#define __CANVAS_H__
 
 
 #include "AShader.h"
@@ -8,37 +8,38 @@
 #include "String.h"
 #include "InputManager.h"
 #include "VideoManager.h"
-
+#include "Text.h"
 
 #include <SDL.h>
 
 
-class Menu
+class Canvas
 {
 public:
-	Menu(glm::vec4 defaultColor, glm::vec4 selectColor);
-	virtual ~Menu();
+	Canvas();
+	virtual ~Canvas();
 
+	//::.. MODIFY FUNCTIONS ..:://
 	void AddSprite(glm::vec2 pos, glm::vec2 size);
-
 	void AddButton(glm::vec2 pos, glm::vec2 size);
-
+	void AddText(glm::vec2 pos, glm::vec2 size, char* text);
+	
 	void Update();
-
 	void Render();
-
-	Vector<Sprite> &GetSpriteArr();
-	Vector<Sprite> &GetButtonArr();
+	void SelectionUpdate();
+	int GetSelect();
 
 private:
 
+	int m_selection;
 	glm::vec4 defaultColor, selectColor;
 
 	Vector<Sprite> m_spriteArr;
 	Vector<Sprite> m_buttonArr;
+	Vector<Text> m_textArr;
 
 };
 
 
 
-#endif // !__GUI_H__
+#endif // __CANVAS_H__
