@@ -2,11 +2,10 @@
 
 #include <sdl_ttf.h>
 
-Menu::Menu() 
+Menu::Menu(glm::vec4 defaultColor, glm::vec4 selectColor)
 {
-	m_selection = 0;
-	defaultColor = glm::vec4(0.0, 0.5, 0.5, 0.0);
-	selectColor = glm::vec4(0.0, 1.0, 1.0, 0.0);
+	defaultColor = defaultColor;
+	selectColor = selectColor;
 }
 
 
@@ -58,55 +57,12 @@ void Menu::Render()
 	}
 }
 
-void Menu::SelectionUpdate()
+Vector<Sprite> &Menu::GetSpriteArr()
 {
-	//m_down = InputManager::Get()->GetButtonDown(CONTROLLER_BUTTON_DPAD_DOWN);
-	//m_up = InputManager::Get()->GetButtonDown(CONTROLLER_BUTTON_DPAD_UP);
-	//m_a = InputManager::Get()->GetButtonDown(CONTROLLER_BUTTON_A);
-
-	if (InputManager::Get()->GetButtonDown(CONTROLLER_BUTTON_DPAD_DOWN))
-	{
-		if (m_selection < m_buttonArr.GetSize() - 1)
-		{
-			m_selection += 1;
-			m_buttonArr[m_selection-1].SetColor(defaultColor);
-			m_buttonArr[m_selection].SetColor(selectColor);
-		}
-	}
-
-	if (InputManager::Get()->GetButtonDown(CONTROLLER_BUTTON_DPAD_UP))
-	{
-		if (m_selection > 0)
-		{
-			m_selection -= 1;
-			m_buttonArr[m_selection+1].SetColor(defaultColor);
-			m_buttonArr[m_selection].SetColor(selectColor);
-		}
-	}
-
-	if (InputManager::Get()->GetButtonDown(CONTROLLER_BUTTON_A))
-	{
-		switch (m_selection)
-		{
-		case 0:
-			//Call Play
-			std::cout << "1" << std::endl;
-			break;
-
-		case 1:
-			//Call Editor
-			std::cout << "2" << std::endl;
-			break;
-
-		case 2:
-			//Call Exit
-			std::cout << "3" << std::endl;
-			break;
-		}
-	}
+	return m_spriteArr;
 }
 
-int Menu::GetSelect()
+Vector<Sprite> &Menu::GetButtonArr()
 {
-	return m_selection;
+	return m_buttonArr;
 }

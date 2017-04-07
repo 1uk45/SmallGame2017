@@ -16,7 +16,7 @@
 class Menu
 {
 public:
-	Menu();
+	Menu(glm::vec4 defaultColor, glm::vec4 selectColor);
 	virtual ~Menu();
 
 	void AddSprite(glm::vec2 pos, glm::vec2 size);
@@ -27,13 +27,11 @@ public:
 
 	void Render();
 
-	void SelectionUpdate();
-
-	int GetSelect();
+	Vector<Sprite> &GetSpriteArr();
+	Vector<Sprite> &GetButtonArr();
 
 private:
 
-	int m_selection;
 	glm::vec4 defaultColor, selectColor;
 
 	Vector<Sprite> m_spriteArr;

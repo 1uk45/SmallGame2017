@@ -13,9 +13,15 @@ public:
 
 	void Update();
 
+	void SelectionUpdate();
+
+	Void MenuSelection();
+
 private:
 	Menu m_test;
 
+	glm::vec4 defaultColor, selectColor;
+	int m_selection;
 
 };
 
