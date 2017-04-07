@@ -3,7 +3,7 @@
 
 
 #include "AShader.h"
-#include "Sprite.h"
+#include "ASprite.h"
 #include "Vector.h"
 #include "String.h"
 #include "InputManager.h"
