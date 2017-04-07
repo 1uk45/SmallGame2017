@@ -27,11 +27,8 @@ void Sprite::Init(float x, float y, float width, float height)
 	//m_BB.w = y + height;
 
 	m_quad.m_arr[0].m_position = glm::vec2(m_bb.x, m_bb.y);
-
 	m_quad.m_arr[1].m_position = glm::vec2(m_bb.z, m_bb.y);
-
 	m_quad.m_arr[2].m_position = glm::vec2(m_bb.x, m_bb.w);
-
 	m_quad.m_arr[3].m_position = glm::vec2(m_bb.z, m_bb.w);
 
 	if (m_vboID == 0)

@@ -171,6 +171,18 @@
     <ClCompile Include="AMenu.cpp">
       <Filter>Engine\GUI</Filter>
     </ClCompile>
+    <ClCompile Include="OptionsMenu.cpp">
+      <Filter>Engine\MainMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateMenu.cpp">
+      <Filter>Engine\MainMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="StartMenu.cpp">
+      <Filter>Engine\MainMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenu.cpp">
+      <Filter>Engine\MainMenu</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="VideoManager.h">
@@ -286,6 +298,18 @@
     </ClInclude>
     <ClInclude Include="AMenu.h">
       <Filter>Engine\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionsMenu.h">
+      <Filter>Engine\MainMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="CreateMenu.h">
+      <Filter>Engine\MainMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="StartMenu.h">
+      <Filter>Engine\MainMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenu.h">
+      <Filter>Engine\MainMenu</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

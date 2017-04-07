@@ -4,9 +4,8 @@
 
 MenuSystem::MenuSystem()
 {
-	m_test.AddButton(glm::vec2(1.0f), glm::vec2(0.3f));
-	m_test.AddButton(glm::vec2(0.0f,-0.3f), glm::vec2(0.3f));
-	m_test.AddText(glm::vec2(0.0f), glm::vec2(0.2f), "lol");
+	m_input = InputManager::Get();
+	Init();
 }
 
 MenuSystem::~MenuSystem()
@@ -14,8 +13,28 @@ MenuSystem::~MenuSystem()
 }
 
 
+void MenuSystem::Init()
+{
+	AMenu* optionsMenu = new OptionsMenu;
+	optionsMenu->SetParent(0);
+
+	m_menus.push_back(optionsMenu);
+	m_menus[0]->Init();
+
+
+	m_currentMenu = 0;
+}
+
 void MenuSystem::Update()
 {
-//	m_test.SelectionUpdate();
-	m_test.Render();
+//	std::cout << m_menus.size << std::endl
+
+	
+	if (m_input->GetButtonHeld(CONTROLLER_BUTTON_A))
+	{
+		m_menus[m_currentMenu]->Render();
+	}
+
+
+
 }

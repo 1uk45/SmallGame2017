@@ -4,6 +4,13 @@
 
 #include "Canvas.h"
 #include "Text.h"
+#include "OptionsMenu.h"
+#include "CreateMenu.h"
+#include "InputManager.h"
+
+#include <cstdint>
+#include <vector>
+
 
 class MenuSystem
 {
@@ -11,12 +18,15 @@ public:
 	MenuSystem();
 	virtual ~MenuSystem();
 
+	void Init();
+
 	void Update();
 
 private:
-	Canvas m_test;
-	Text t;
+	InputManager * m_input;
 
+	uint32_t m_currentMenu;
+	std::vector<AMenu*> m_menus;
 };
 
 
