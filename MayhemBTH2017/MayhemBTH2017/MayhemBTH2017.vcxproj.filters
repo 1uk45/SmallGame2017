@@ -147,6 +147,9 @@
     <ClCompile Include="InputManager.cpp">
       <Filter>Engine\HID</Filter>
     </ClCompile>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>Engine\GUI</Filter>
+    </ClCompile>
     <ClCompile Include="Level.cpp">
       <Filter>Engine\LevelEditor</Filter>
     </ClCompile>
@@ -168,12 +171,18 @@
     <ClCompile Include="AMenu.cpp">
       <Filter>Engine\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="Play.cpp" />
-    <ClCompile Include="ASprite.cpp">
-      <Filter>Engine\GUI</Filter>
+    <ClCompile Include="OptionsMenu.cpp">
+      <Filter>Engine\MainMenu</Filter>
     </ClCompile>
-    <ClCompile Include="SpriteImage.cpp" />
-    <ClCompile Include="SpriteText.cpp" />
+    <ClCompile Include="CreateMenu.cpp">
+      <Filter>Engine\MainMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="StartMenu.cpp">
+      <Filter>Engine\MainMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenu.cpp">
+      <Filter>Engine\MainMenu</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="VideoManager.h">
@@ -266,6 +275,9 @@
     <ClInclude Include="GUIQuad.h">
       <Filter>Engine\GUI</Filter>
     </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>Engine\GUI</Filter>
+    </ClInclude>
     <ClInclude Include="Level.h">
       <Filter>Engine\LevelEditor</Filter>
     </ClInclude>
@@ -287,12 +299,18 @@
     <ClInclude Include="AMenu.h">
       <Filter>Engine\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="Play.h" />
-    <ClInclude Include="ASprite.h">
-      <Filter>Engine\GUI</Filter>
+    <ClInclude Include="OptionsMenu.h">
+      <Filter>Engine\MainMenu</Filter>
     </ClInclude>
-    <ClInclude Include="SpriteImage.h" />
-    <ClInclude Include="SpriteText.h" />
+    <ClInclude Include="CreateMenu.h">
+      <Filter>Engine\MainMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="StartMenu.h">
+      <Filter>Engine\MainMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenu.h">
+      <Filter>Engine\MainMenu</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="DebugShader.frag">

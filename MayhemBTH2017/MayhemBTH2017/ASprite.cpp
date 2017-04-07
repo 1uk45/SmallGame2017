@@ -1,24 +1,19 @@
-#include "ASprite.h"
+#include "Sprite.h"
 
 
 
-ASprite::ASprite()
-{
-
-}
-
-ASprite::ASprite(const std::string & filename, bool geom)
+Sprite::Sprite(const std::string & filename, bool geom)
 {
 	m_vboID = 0;
 	shader = new AShader(filename, geom);
 }
 
-ASprite::~ASprite()
-{
 
+Sprite::~Sprite()
+{
 }
 
-void ASprite::Init(float x, float y, float width, float height)
+void Sprite::Init(float x, float y, float width, float height)
 {
 
 	m_bb.x = x - width / 2;
@@ -32,11 +27,8 @@ void ASprite::Init(float x, float y, float width, float height)
 	//m_BB.w = y + height;
 
 	m_quad.m_arr[0].m_position = glm::vec2(m_bb.x, m_bb.y);
-
 	m_quad.m_arr[1].m_position = glm::vec2(m_bb.z, m_bb.y);
-
 	m_quad.m_arr[2].m_position = glm::vec2(m_bb.x, m_bb.w);
-
 	m_quad.m_arr[3].m_position = glm::vec2(m_bb.z, m_bb.w);
 
 	if (m_vboID == 0)
@@ -51,14 +43,14 @@ void ASprite::Init(float x, float y, float width, float height)
 
 }
 
-void ASprite::SetColor(glm::vec4 color)
+void Sprite::SetColor(glm::vec4 color)
 {
 	//change color
 	m_quad.m_color = color;
 
 }
 
-void ASprite::Render()
+void Sprite::Render()
 {
 	shader->Bind();
 
@@ -77,6 +69,6 @@ void ASprite::Render()
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
 
-void ASprite::AddAttributeLocation()
+void Sprite::AddAttributeLocation()
 {
 }

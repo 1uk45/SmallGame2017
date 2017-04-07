@@ -100,8 +100,8 @@ void Text::Init(float x, float y, float width, float height)
 //
 //	for (size_t i = 0; i < l; i++)
 //	{
-//		std::cout << (unsigned int)surfaceMessage[i].format << std::endl;
-////		pixels[i] = (unsigned int)surfaceMessage[i].format;
+//		std::cout << (unsigned int)surfaceMessage[i].pixels << std::endl;
+//		pixels[i] = (unsigned int)surfaceMessage[i].pixels;
 //	}
 //
 //	glGenTextures(1, &m_texture);
@@ -114,8 +114,8 @@ void Text::Init(float x, float y, float width, float height)
 //	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 //
 //	glTexImage2D(GL_TEXTURE_2D, 0, colors, surfaceMessage->w, surfaceMessage->h, 0,
-//		GL_RGBA, GL_UNSIGNED_BYTE,pixels);
-
+//		GL_RGBA, GL_UNSIGNED_BYTE, pixels);
+//
 
 
 }
