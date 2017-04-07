@@ -17,7 +17,7 @@ void Canvas::AddSprite(glm::vec2 pos, glm::vec2 size)
 {
 
 	//ändra så att sprite class har color etc...
-	Sprite newSprite("leo", true);
+	ASprite newSprite("leo", true);
 
 	newSprite.Init(pos.x, pos.y, size.x, size.y);
 	newSprite.SetColor(defaultColor);
@@ -27,7 +27,7 @@ void Canvas::AddSprite(glm::vec2 pos, glm::vec2 size)
 
 void Canvas::AddButton(glm::vec2 pos, glm::vec2 size)
 {
-	Sprite newSprite("leo", true);
+	ASprite newSprite("leo", true);
 
 	newSprite.Init(pos.x, pos.y, size.x, size.y);
 	newSprite.SetColor(defaultColor);

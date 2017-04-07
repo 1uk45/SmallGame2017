@@ -34,8 +34,8 @@ private:
 	int m_selection;
 	glm::vec4 defaultColor, selectColor;
 
-	Vector<Sprite> m_spriteArr;
-	Vector<Sprite> m_buttonArr;
+	Vector<ASprite> m_spriteArr;
+	Vector<ASprite> m_buttonArr;
 	Vector<Text> m_textArr;
 
 };

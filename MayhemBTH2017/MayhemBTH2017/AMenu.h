@@ -15,4 +15,4 @@ public:
 };
 
 
-#endif // __AMENU_H__
+#endif // !__AMENU_H__
