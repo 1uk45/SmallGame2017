@@ -10,7 +10,9 @@ class AMenu
 public:
 	AMenu();
 	virtual ~AMenu();
+	
+	virtual void Update() = 0;
 };
 
 
-#endif
+#endif // __AMENU_H__

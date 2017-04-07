@@ -166,9 +166,11 @@
       <Filter>Engine\GUI</Filter>
     </ClCompile>
     <ClCompile Include="Canvas.cpp">
-      <Filter>Engine\MainMenu</Filter>
+      <Filter>Engine\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="AMenu.cpp" />
+    <ClCompile Include="AMenu.cpp">
+      <Filter>Engine\GUI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="VideoManager.h">
@@ -280,9 +282,11 @@
       <Filter>Engine\GUI</Filter>
     </ClInclude>
     <ClInclude Include="Canvas.h">
-      <Filter>Engine\MainMenu</Filter>
+      <Filter>Engine\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="AMenu.h" />
+    <ClInclude Include="AMenu.h">
+      <Filter>Engine\GUI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="DebugShader.frag">
