@@ -18,28 +18,28 @@ LevelEditor::LevelEditor()
 
 	m_timer.SetTimer(0.1f, true, true);
 
-	verts[0].position = glm::vec3(0.5f, 0.5f, 0.0f);
-	verts[0].normal = glm::vec3(0.5f, 0.5f, 0.0f);
-	verts[0].texCoordsAlpha = glm::vec3(1.0f, 1.0f, 1.0f);
+	verts[0].position = glm::vec3(0.5f, -0.5f, 0.0f);
+	verts[0].normal = glm::vec3(0.0f, 0.0f, 1.0f);
+	verts[0].texCoordsAlpha = glm::vec3(0.0f, 1.0f, 1.0f);
 
-	verts[1].position = glm::vec3(0.5f, -0.5f, 0.0f);
-	verts[1].normal = glm::vec3(1.0f, 1.0f, 0.0f);
-	verts[1].texCoordsAlpha = glm::vec3(1.0f, 0.0f, 1.0f);
+	verts[1].position = glm::vec3(0.5f, 0.5f, 0.0f);
+	verts[1].normal = glm::vec3(0.0f, 0.0f, 1.0f);
+	verts[1].texCoordsAlpha = glm::vec3(0.0f, 0.0f, 1.0f);
 
 	verts[2].position = glm::vec3(-0.5f, 0.5f, 0.0f);
-	verts[2].normal = glm::vec3(1.0f, 1.0f, 0.0f);
-	verts[2].texCoordsAlpha = glm::vec3(0.0f, 1.0f, 1.0f);
+	verts[2].normal = glm::vec3(0.0f, 0.0f, 1.0f);
+	verts[2].texCoordsAlpha = glm::vec3(1.0f, 0.0f, 1.0f);
 
 	verts[3].position = glm::vec3(-0.5f, 0.5f, 0.0f);
-	verts[3].normal = glm::vec3(1.0f, 1.0f, 0.0f);
-	verts[3].texCoordsAlpha = glm::vec3(0.0f, 1.0f, 1.0f);
+	verts[3].normal = glm::vec3(0.0f, 0.0f, 1.0f);
+	verts[3].texCoordsAlpha = glm::vec3(1.0f, 0.0f, 1.0f);
 
 	verts[4].position = glm::vec3(0.5f, -0.5f, 0.0f);
-	verts[4].normal = glm::vec3(1.0f, 1.0f, 0.0f);
-	verts[4].texCoordsAlpha = glm::vec3(1.0f, 0.0f, 1.0f);
+	verts[4].normal = glm::vec3(0.0f, 0.0f, 1.0f);
+	verts[4].texCoordsAlpha = glm::vec3(0.0f, 1.0f, 1.0f);
 
 	verts[5].position = glm::vec3(-0.5f, -0.5f, 0.0f);
-	verts[5].normal = glm::vec3(1.0f, 1.0f, 0.0f);
+	verts[5].normal = glm::vec3(0.0f, 0.0f, 1.0f);
 	verts[5].texCoordsAlpha = glm::vec3(1.0f, 1.0f, 1.0f);
 
 	m_transform.SetPosition(0.0f, 0.0f, 0.0f);

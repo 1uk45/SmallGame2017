@@ -17,9 +17,10 @@ System::~System()
 //::.. THE MAIN LOOP ..:://
 void System::Run()
 {
-
+	MeshQuad quad;
 	LevelEditor l;
 	MenuSystem m;
+	AntiAliasing msaa;
 	glDepthFunc(GL_LESS);
 	glEnable(GL_DEPTH_TEST);
 
@@ -28,8 +29,9 @@ void System::Run()
 
 	while (isRunning)
 	{
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	//	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glClearColor(0.3f, 0.3f, 0.7f, 1.0f);
+		msaa.Reset();
 		
 		m_inputManager->Update();
 
@@ -51,6 +53,11 @@ void System::Run()
 		default:
 			break;
 		}
+
+		msaa.Update();
+		quad.Render();
+		msaa.Bind();
+		quad.Draw();
 
 		m_inputManager->Reset();
 

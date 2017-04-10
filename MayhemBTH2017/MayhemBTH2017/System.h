@@ -6,6 +6,9 @@
 #include "InputManager.h"
 #include "TimeManager.h"
 #include "StateManager.h"
+#include "MeshQuad.h"
+#include "AntiAliasing.h"
+
 
 class System
 {
