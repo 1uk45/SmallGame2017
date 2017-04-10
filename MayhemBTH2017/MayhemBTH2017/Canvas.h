@@ -3,12 +3,12 @@
 
 
 #include "AShader.h"
-#include "Sprite.h"
 #include "Vector.h"
 #include "String.h"
 #include "InputManager.h"
 #include "VideoManager.h"
 #include "Text.h"
+#include "Sprite.h"
 
 #include <SDL.h>
 
@@ -26,16 +26,19 @@ public:
 	
 	void Update();
 	void Render();
-	void SelectionUpdate();
-	int GetSelect();
+
+
+	//::.. GET FUNCTIONS ..:://
+	Vector<Sprite> GetSpriteArr();
+	Vector<Sprite> GetButtonArr();
+	Vector<Text> GetTextArr();
 
 private:
 
-	int m_selection;
 	glm::vec4 defaultColor, selectColor;
 
-	Vector<ASprite> m_spriteArr;
-	Vector<ASprite> m_buttonArr;
+	Vector<Sprite> m_spriteArr;
+	Vector<Sprite> m_buttonArr;
 	Vector<Text> m_textArr;
 
 };

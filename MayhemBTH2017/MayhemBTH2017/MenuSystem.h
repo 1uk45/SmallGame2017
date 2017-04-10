@@ -22,9 +22,12 @@ public:
 
 	void Update();
 
+	void SelectionUpdate();
+
 private:
 	InputManager * m_input;
 
+	int m_selection;
 	uint32_t m_currentMenu;
 	std::vector<AMenu*> m_menus;
 };

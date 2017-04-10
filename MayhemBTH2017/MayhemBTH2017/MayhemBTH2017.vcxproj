@@ -133,6 +133,7 @@
     <ClCompile Include="ARenderable.cpp" />
     <ClCompile Include="AResource.cpp" />
     <ClCompile Include="AShader.cpp" />
+    <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CreateMenu.cpp" />
     <ClCompile Include="DefaultAllocator.cpp" />
@@ -157,7 +158,6 @@
     <ClCompile Include="ShaderCache.cpp" />
     <ClCompile Include="DebugShaderTech.cpp" />
     <ClCompile Include="ShaderImporter.cpp" />
-    <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="StackPool.cpp" />
     <ClCompile Include="StartMenu.cpp" />
     <ClCompile Include="StateManager.cpp" />
@@ -179,6 +179,7 @@
     <ClInclude Include="ARenderable.h" />
     <ClInclude Include="AResource.h" />
     <ClInclude Include="AShader.h" />
+    <ClInclude Include="Sprite.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CreateMenu.h" />
     <ClInclude Include="DefaultAllocator.h" />
@@ -204,7 +205,6 @@
     <ClInclude Include="ShaderCache.h" />
     <ClInclude Include="DebugShaderTech.h" />
     <ClInclude Include="ShaderImporter.h" />
-    <ClInclude Include="Sprite.h" />
     <ClInclude Include="StackPool.h" />
     <ClInclude Include="StartMenu.h" />
     <ClInclude Include="StateManager.h" />

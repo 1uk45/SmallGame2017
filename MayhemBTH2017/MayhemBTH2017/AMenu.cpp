@@ -4,23 +4,24 @@
 
 AMenu::AMenu()
 {
-}
 
+}
 
 AMenu::~AMenu()
 {
-}
 
+}
 
 //::.. SET FUNCTIONS ..:://
 void AMenu::SetParent(uint32_t id)
 {
+	m_parent = id;
 }
 
 void AMenu::SetID(uint32_t id)
 {
+	m_id = id;
 }
-
 
 //::.. GET FUNCTIONS ..:://
 uint32_t AMenu::GetParent()

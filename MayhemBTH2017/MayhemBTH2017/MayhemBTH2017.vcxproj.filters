@@ -147,9 +147,6 @@
     <ClCompile Include="InputManager.cpp">
       <Filter>Engine\HID</Filter>
     </ClCompile>
-    <ClCompile Include="Sprite.cpp">
-      <Filter>Engine\GUI</Filter>
-    </ClCompile>
     <ClCompile Include="Level.cpp">
       <Filter>Engine\LevelEditor</Filter>
     </ClCompile>
@@ -177,11 +174,14 @@
     <ClCompile Include="CreateMenu.cpp">
       <Filter>Engine\MainMenu</Filter>
     </ClCompile>
-    <ClCompile Include="StartMenu.cpp">
-      <Filter>Engine\MainMenu</Filter>
-    </ClCompile>
     <ClCompile Include="MainMenu.cpp">
       <Filter>Engine\MainMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="StartMenu.cpp">
+      <Filter>Engine\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>Engine\GUI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -275,9 +275,6 @@
     <ClInclude Include="GUIQuad.h">
       <Filter>Engine\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="Sprite.h">
-      <Filter>Engine\GUI</Filter>
-    </ClInclude>
     <ClInclude Include="Level.h">
       <Filter>Engine\LevelEditor</Filter>
     </ClInclude>
@@ -305,11 +302,14 @@
     <ClInclude Include="CreateMenu.h">
       <Filter>Engine\MainMenu</Filter>
     </ClInclude>
-    <ClInclude Include="StartMenu.h">
-      <Filter>Engine\MainMenu</Filter>
-    </ClInclude>
     <ClInclude Include="MainMenu.h">
       <Filter>Engine\MainMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="StartMenu.h">
+      <Filter>Engine\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>Engine\GUI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

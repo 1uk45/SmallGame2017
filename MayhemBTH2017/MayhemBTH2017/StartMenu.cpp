@@ -4,11 +4,12 @@
 
 StartMenu::StartMenu()
 {
-}
 
+}
 
 StartMenu::~StartMenu()
 {
+
 }
 
 void StartMenu::Init()

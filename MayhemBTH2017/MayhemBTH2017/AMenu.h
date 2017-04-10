@@ -15,9 +15,9 @@ public:
 	AMenu();
 	virtual ~AMenu();
 	
-	virtual void Init() {};
-	virtual void Update() {};
-	virtual void Render() {};
+	virtual void Init() = 0;
+	virtual void Update() = 0;
+	virtual void Render() = 0;
 
 	//::.. SET FUNCTIONS ..:://
 	void SetParent(uint32_t id);
@@ -33,6 +33,8 @@ protected:
 private:
 	std::vector<AMenu*> m_children;
 	uint32_t m_parent;
+	uint32_t m_id;
+
 };
 
 
